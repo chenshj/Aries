@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Aries UI|Aries UI开发社区</title>
+    <link rel="shortcut icon" href="img/aries-traits.png">
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.nav.js"></script>
+    <script src="../src/core/aries.ui.init.js"></script>
+    <script src="../proto/tab.js"></script>
+    <script src="init.js"></script>
+    <style>
+
+    </style>
+</head>
+<body style="padding-top:50px">
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="javascript:void(0);">Aries 开发社区</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>登陆</a></li>
+            <li><a>注册</a></li>
+        </ul>
+    </div>
+
+</header>
+<div class="container">
+
+
+    <form novalidate="novalidate" action="php/demo-register.php" id="smart-form-register"
+          class="smart-form client-form">
+        <header>
+            Registration is FREE*
+        </header>
+
+        <fieldset>
+            <section class="form-group">
+                <input class="form-control" name="username" placeholder="Username" type="text">
+                <label class="login-field-icon fa fa-2x fa-user"></label>
+            </section>
+
+            <section class="form-group">
+                    <input class="form-control" name="email" placeholder="Email address" type="email">
+                    <label class="login-field-icon fa fa-2x fa-envelope"></label>
+            </section>
+
+            <section class="form-group">
+                    <input class="form-control" name="password" placeholder="Password" id="password" type="password">
+                    <i class="login-field-icon fa fa-2x fa-lock"></i>
+            </section>
+
+            <section class="form-group">
+                    <input class="form-control" name="passwordConfirm" placeholder="Confirm password" type="password">
+                    <i class="login-field-icon fa fa-2x fa-lock"></i>
+            </section>
+        </fieldset>
+        <footer>
+            <button type="submit" class="btn btn-primary">
+                Register
+            </button>
+        </footer>
+    </form>
+
+
+</div>
+<script>
+
+</script>
+</body>
+</html>

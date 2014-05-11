@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" charset="utf-8"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slidein.keyframes.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slideout.keyframes.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slide.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.default.js"></script>
+    <script src="../src/core/aries.media.js"></script>
+    <script src="../src/core/aries.support.js"></script>
+    <script src="../src/core/aries.support.touch.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/events/navigate.js"></script>
+    <script src="../src/events/touch.js"></script>
+    <script src="../src/navigation/navigation.js"></script>
+    <script src="../src/transitions/transition.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.pagecontainer.js"></script>
+    <script src="../src/ui/aries.ui.tab.js"></script>
+    <script src="../src/ui/aries.ui.filterable.js"></script>
+    <script type="text/html" id="employeeListSearchPanelTemplate">
+        <form class="form-inline">
+            <div class="input-group" style="margin: 5px">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary ">排序</button>
+                </div>
+                <input id="filterBasic-input" data-filter="true" placeholder="搜索..." class="form-control" type="search"/>
+
+                <div class="input-group-btn">
+                    <button class="btn btn-primary "><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <style>
+        .emp-goal-list-item {
+            height: 92px;
+            margin-bottom: 5px;
+        }
+
+        .emp-goal-list-item-mark {
+            color: red;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .emp-icon-container {
+            position: absolute;
+            width: 90px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .emp-icon {
+            width: 90px;
+            height: 90px;
+        }
+
+        .emp-goal-list-item-content {
+            margin-left: 100px;
+            padding: 10px;
+        }
+
+        .emp-goal-list-item-content > table {
+            width: 100%;
+            border-top: 1px solid #EEE;
+        }
+
+        #log{
+            position: absolute;
+            z-index: 99;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,.3);
+            height: 200px;
+            overflow-y: auto;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden">
+<div id="log">
+</div>
+<div id="page1" data-role="page" class="page page-active">
+<header class="action-bar navbar navbar-default ">
+    <!--LOGO BRAND-->
+    <div data-role="logo-brand" class="logo-brand navbar-header">
+        <!-- PLACE YOUR LOGO HERE -->
+        <a class="navbar-brand" href="#">
+            <span class="fa fa-angle-left"></span>
+            <span id="activity1" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+            <!--Brand-->
+        </a>
+        <!-- END LOGO PLACEHOLDER -->
+        <!--VIEW CONTROL-->
+        <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector1" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+        <!--END PLACE YOUR TITLE HERE-->
+        <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li>-->
+        <!--<a href="javascript:void(0);"></a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--END VIEW CONTROL-->
+    </div>
+    <!--END LOGO BRAND-->
+    <!-- ACTION BUTTONS-->
+    <!--END ACTION BUTTONS-->
+</header>
+<div id="page1content" data-role="content" style="-webkit-box-orient: vertical" class="content">
+<div id="listview1" class="list-group" data-scrollable="true" data-fill="true" data-searchable="true"
+     data-role="listview" data-filter="true" data-input="#filterBasic-input" data-searchPanelTemplate="employeeListSearchPanelTemplate">
+<a id="item1" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/1.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <i class="fa fa-circle emp-goal-list-item-mark pull-right"></i>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：81</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item2" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/2.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <i class="fa fa-circle emp-goal-list-item-mark"></i>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：82</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item3" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/3.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：83</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item4" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/4.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：84</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item5" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/5.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：85</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item6" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon" src="../test/img/6.png">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item7" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item8" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item9" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item10" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+<a id="item11" class="list-group-item clearfix no-padding emp-goal-list-item">
+    <div class="emp-icon-container">
+        <img class="pull-left emp-icon"
+             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+    </div>
+    <div class="clearfix emp-goal-list-item-content">
+        <h4 class="list-group-item-heading">茉莉</h4>
+        <table>
+            <tr>
+                <td>状态：待打分</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>自评分：80</td>
+                <td>上级评分：80</td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+</a>
+</div>
+</div>
+</div>
+<div id="page2" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div id="page2content" data-role="content" class="content" data-scrollable="true"
+         style="display:-webkit-box;-webkit-box-orient:vertical">
+        <div style="display: -webkit-box;-webkit-box-flex:1;-webkit-box-orient:vertical">
+            <div id="tabHeader">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" style="display: -webkit-inline-box;min-width: 100%">
+                    <li><a href="#home" data-toggle="tab">Home</a></li>
+                    <li><a href="#profile" data-toggle="tab">Profile</a></li>
+                    <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content" style="-webkit-box-flex:1">
+                <div class="tab-pane active" id="home">
+                    <input class="form-control" type="text" id="demoText"/>
+                </div>
+                <div class="tab-pane" id="profile">...</div>
+                <div class="tab-pane" id="messages">...</div>
+                <div class="tab-pane" id="settings">...</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="transition.js"></script>
+<script src="../src/aries.init.js"></script>

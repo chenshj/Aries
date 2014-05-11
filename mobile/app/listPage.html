@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" charset="utf-8"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/core/aries.ui.init.js"></script>
+    <script src="../ref/underscore.js"></script>
+    <script src="../ref/ModuleJS.js"></script>
+    <script src="../ref/DataSourceJS.js"></script>
+    <script src="../ref/knockout-3.0.0.datasource.js"></script>
+    <script src="../ref/ko.datasource.js"></script>
+    <script src="employeesObjectivesModel.js"></script>
+    <script src="listPage.js"></script>
+    <script src="listPageController.js"></script>
+    <script type="text/html" id="employeeListSearchPanelTemplate">
+        <form class="form-inline" style="margin: 5px 0">
+            <div class="input-group" style="margin: 5px">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary ">排序</button>
+                </div>
+                <input placeholder="搜索..." class="form-control" type="search"/>
+
+                <div class="input-group-btn">
+                    <button class="btn btn-primary "><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </form>
+    </script>
+    <script type="text/html" id="listItemTemplate">
+        <a data-bind="attr:{id:ID}" class="list-group-item clearfix no-padding emp-goal-list-item">
+            <div class="emp-icon-container">
+                <img class="pull-left emp-icon" data-bind="attr:{src:Person_ZP}"/>
+            </div>
+            <div class="clearfix emp-goal-list-item-content">
+                <h4 class="list-group-item-heading"><span data-bind="text:PersonID_Name"></span></h4>
+                <i class="fa fa-circle emp-goal-list-item-mark pull-right"></i>
+                <table>
+                    <tr>
+                        <td>状态：待打分</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>自评分：<span data-bind="text:SelfScore"></span></td>
+                        <td>上级评分：<span data-bind="text:EmpSumScore"></span></td>
+                    </tr>
+                </table>
+            </div>
+        </a>
+    </script>
+    <script>
+        $(function() {
+            gsp.module('EmployeeList');
+            gsp.application.run(['EmployeeList'], {});
+        });
+    </script>
+    <style>
+        .emp-goal-list-item {
+            height: 92px;
+            margin-bottom: 5px;
+        }
+
+        .emp-goal-list-item-mark {
+            color: red;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .emp-icon-container {
+            position: absolute;
+            width: 90px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .emp-icon {
+            width: 90px;
+            height: 90px;
+        }
+
+        .emp-goal-list-item-content {
+            margin-left: 100px;
+            padding: 10px;
+        }
+
+        .emp-goal-list-item-content > table {
+            width: 100%;
+            border-top: 1px solid #EEE;
+        }
+    </style>
+</head>
+<body data-view="Main">
+<div data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+                <!--<b class="badge bg-color-red bounceIn animated">21</b>-->
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+            <span id="project-selector" class="project-selector dropdown-toggle" data-toggle="dropdown">二月份员工目标</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <i class="dropdown-icon fa fa-caret-right"></i>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0);">Online e-merchant management system - attaching integration with the
+                        iOS</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Notes on pipeline upgradee</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Assesment Report for merchant account</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+                </li>
+            </ul>
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <ul class="action-buttons nav navbar-nav navbar-right">
+            <li><a class="navbar-brand" href="#"><span class="fa fa-search"></span></a></li>
+            <li><a class="navbar-brand" href="#"><span class="fa fa-pencil"></span></a></li>
+            <li class="dropdown">
+                <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown"><span
+                        class="fa fa-ellipsis-v"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" style="-webkit-box-orient: vertical" class="content">
+        <div id="listview1" data-bind="template:{name:'listItemTemplate',foreach:EmployeeListInstance}"
+             class="list-group"
+             data-scrollable="true" data-fill="true" data-searchable="true"
+             data-role="listview" data-searchPanelTemplate="employeeListSearchPanelTemplate">
+        </div>
+    </div>
+</div>
+</body>
+</html>

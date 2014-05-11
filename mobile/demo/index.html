@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" charset="utf-8"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slidein.keyframes.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slideout.keyframes.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.slide.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.default.js"></script>
+    <script src="../src/core/aries.media.js"></script>
+    <script src="../src/core/aries.support.js"></script>
+    <script src="../src/core/aries.support.touch.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/events/navigate.js"></script>
+    <script src="../src/events/touch.js"></script>
+    <script src="../src/navigation/navigation.js"></script>
+    <script src="../src/transitions/transition.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.pagecontainer.js"></script>
+    <script src="../src/ui/aries.ui.tab.js"></script>
+    <script src="../src/ui/aries.ui.filterable.js"></script>
+    <style>
+        .index-list-badge {
+            width: 64px;
+            padding: 10px 5px;
+        }
+
+        .index-list-icon {
+            width: 32px;
+            padding: 8px 6px;
+        }
+
+        .index-list-item {
+            min-height: 48px;
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden">
+<div id="log">
+</div>
+<div id="index" data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" data-scrollable="true" style="-webkit-box-orient: vertical" class="content">
+        <div id="demoIndexList" class="list-group list-group-inset" data-scrollable="true" data-fill="true"
+             data-role="listview">
+            <a class="list-group-item list-group-item-default index-list-item" href="#layout">
+                <div class="index-list-icon">
+                    <i class="fa fa-2x fa-desktop"></i>
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">页面布局</h4>
+                </div>
+                <div class="index-list-badge">
+                    <span class="badge pull-right">4</span>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" href="#listview">
+                <div class="index-list-icon">
+                    <i class="fa fa-2x fa-tasks"></i>
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">列表</h4>
+                </div>
+                <div class="index-list-badge">
+                    <span class="badge pull-right">3</span>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" href="#filter">
+                <div class="index-list-icon">
+                    <i class="fa fa-2x fa-filter"></i>
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">过滤</h4>
+                </div>
+                <div class="index-list-badge">
+                    <span class="badge pull-right">0</span>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" href="#tab">
+                <div class="index-list-icon">
+                    <i class="fa fa-2x fa-folder"></i>
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">Tab</h4>
+                </div>
+                <div class="index-list-badge">
+                    <span class="badge pull-right">0</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="layout" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true"
+         style="-webkit-box-orient:vertical">
+        <div id="layoutIndexList" class="list-group list-group-inset" data-scrollable="true" data-fill="true"
+             data-role="listview">
+            <a class="list-group-item list-group-item-default index-list-item" href="#pageheader">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">页头</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">页面结构及Demo</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">事件</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">API</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="listview" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true"
+         style="-webkit-box-orient:vertical">
+        <div id="listIndexList" class="list-group list-group-inset" data-scrollable="true" data-fill="true"
+             data-role="listview">
+            <a class="list-group-item list-group-item-default index-list-item" data-url="listview_doc.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">DOM结构及Demo</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">事件</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">API</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="filter" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true"
+         style="-webkit-box-orient:vertical">
+    </div>
+</div>
+<div id="tab" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true"
+         style="-webkit-box-orient:vertical">
+    </div>
+</div>
+<div id="pageheader" data-role="page" class="page">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#layout">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true">
+        <div id="headerIndexList" class="list-group list-group-inset" data-scrollable="true" data-fill="true"
+             data-role="listview">
+            <a class="list-group-item list-group-item-default index-list-item" data-url="page/page_header_title_default.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">默认标题</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" data-url="page/page_header_title_center.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">标题居中</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" data-url="page/page_header_with_icon.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">带图标的页头</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" data-url="page/page_header_with_side_button.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">带左右按钮的页头</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default index-list-item" data-url="page/page_header_with_side_button_title_center.html">
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">带左右按钮标题居中的页头</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../src/aries.init.js"></script>
+<script>
+    $('#listIndexList,#headerIndexList').on('click','.list-group-item',function(){
+       if($(this).attr('data-url')){
+           aries.changePage($(this).attr('data-url'));
+       }
+    });
+</script>

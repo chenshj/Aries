@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" charset="utf-8"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="../../mobiscroll-master/css/mobiscroll.scroller.css">
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.united.css">
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap-switch.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../src/core/aries.default.js"></script>
+    <script src="../src/core/aries.media.js"></script>
+    <script src="../src/core/aries.support.js"></script>
+    <script src="../src/core/aries.support.touch.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/events/navigate.js"></script>
+    <script src="../src/events/touch.js"></script>
+    <script src="../src/navigation/path.js"></script>
+    <script src="../src/navigation/base.js"></script>
+    <script src="../src/navigation/history.js"></script>
+    <script src="../src/navigation/navigator.js"></script>
+    <script src="../src/navigation/method.js"></script>
+    <script src="../src/transitions/transition.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.pagecontainer.js"></script>
+    <script src="../src/ui/aries.ui.dropdown.js"></script>
+    <script src="../src/ui/aries.ui.tab.js"></script>
+    <script src="../src/ui/aries.ui.mobiscroll.js"></script>
+    <script src="../src/ui/aries.ui.select.js"></script>
+    <script src="../src/ui/aries.ui.datetime.js"></script>
+    <script src="../src/ui/aries.ui.switch.js"></script>
+    <script src="../ref/bootstrap.js"></script>
+    <script src="dashboard.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div data-role="page">
+<header data-role="actionBar" class="action-bar navbar navbar-default navbar-fixed-top">
+    <!--head logo-->
+    <div data-role="logo-brand" class="navbar-header">
+        <!-- PLACE YOUR LOGO HERE -->
+        <a class="navbar-brand" href="#">
+            <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-user fa-border"></i>
+                <b class="badge bg-color-red bounceIn animated">21</b>
+            </span>
+            <!--Brand-->
+        </a>
+        <!-- END LOGO PLACEHOLDER -->
+
+        <!--</div>-->
+        <!--end head logo-->
+        <!-- begin view control -->
+        <!--<div id="projects-dropdown" class="project-dropdown">-->
+        <!--<span data-role="project-label" class="label">Title</span>-->
+        <!--dropdown button-->
+        <!--<span id="project-selector" class="project-selector dropdown-toggle" data-toggle="dropdown">-->
+        <!--Content-->
+        <!--<i class="fa fa-angle-down"></i>-->
+        <!--</span>-->
+        <!--<a class="navbar-brand">-->
+            <span id="project-selector" class="project-selector dropdown-toggle" data-toggle="dropdown">
+                    Content
+                </span>
+        <i class="dropdown-icon fa fa-caret-right"></i>
+        <!--</a>-->
+        <!--end dropdown button-->
+        <!-- Suggestion: populate this list with fetch and push technique -->
+        <ul class="dropdown-menu">
+            <li>
+                <a href="javascript:void(0);">Online e-merchant management system - attaching integration with the
+                    iOS</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Notes on pipeline upgradee</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Assesment Report for merchant account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+            </li>
+        </ul>
+        <!-- end dropdown-menu-->
+    </div>
+    <!-- end view control -->
+    <!-- begin action buttons-->
+    <ul class="action-buttons nav navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="#"><span class="fa fa-search"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="fa fa-user"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="fa fa-pencil"></span></a></li>
+        <li class="dropdown">
+            <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown"><span
+                    class="fa fa-ellipsis-v"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!--end action buttons-->
+</header>
+<aside data-role="aside-panel" id="left-panel" class="aside-panel" style="min-height: 2897px;">
+
+<!-- User info -->
+<div data-role="aside-panel-header" class="aside-panel-header">
+                    <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+                        <img src="img/avatars/sunny.png" alt="me" class="online">
+                        <a href="javascript:void(0);" id="show-shortcut">
+                            john.doe <i class="fa fa-angle-down"></i>
+                        </a>
+                    </span>
+</div>
+<!-- end user info -->
+
+<!-- NAVIGATION : This navigation is also responsive
+
+To make this navigation dynamic please make sure to link the node
+(the reference to the nav > ul) after page load. Or the navigation
+will not initialize.
+-->
+<nav>
+<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+Please note that these links work a bit different than
+traditional href="" links. See documentation for details.
+-->
+<ul id="left-nav-menu" style="">
+<li class="active">
+    <a href="ajax/dashboard.html" title="Dashboard"><i class="fa fa-home fa-2x"></i> <span
+            class="menu-item-parent">Dashboard</span></a>
+</li>
+<li>
+    <a href="ajax/inbox.html"><i class="fa fa-2x fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span
+            class="badge pull-right inbox-badge">14</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
+    <ul>
+        <li>
+            <a href="ajax/flot.html">Flot Chart</a>
+        </li>
+        <li>
+            <a href="ajax/morris.html">Morris Charts</a>
+        </li>
+        <li>
+            <a href="ajax/inline-charts.html">Inline Charts</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-table"></i> <span class="menu-item-parent">Tables</span></a>
+    <ul>
+        <li>
+            <a href="ajax/table.html">Normal Tables</a>
+        </li>
+        <li>
+            <a href="ajax/datatables.html">Data Tables</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-pencil"></i> <span class="menu-item-parent">Forms</span></a>
+    <ul>
+        <li>
+            <a href="ajax/form-elements.html">Smart Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/form-templates.html">Smart Form Layouts</a>
+        </li>
+        <li>
+            <a href="ajax/validation.html">Smart Form Validation</a>
+        </li>
+        <li>
+            <a href="ajax/bootstrap-forms.html">Bootstrap Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/plugins.html">Form Plugins</a>
+        </li>
+        <li>
+            <a href="ajax/wizard.html">Wizards</a>
+        </li>
+        <li>
+            <a href="ajax/other-editors.html">Bootstrap Editors</a>
+        </li>
+        <li>
+            <a href="ajax/dropzone.html">Dropzone <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
+    <ul>
+        <li>
+            <a href="ajax/general-elements.html">General Elements</a>
+        </li>
+        <li>
+            <a href="ajax/buttons.html">Buttons</a>
+        </li>
+        <li>
+            <a href="#">Icons</a>
+            <ul>
+                <li>
+                    <a href="ajax/fa.html"><i class="fa-plane"></i> Font Awesome</a>
+                </li>
+                <li>
+                    <a href="ajax/glyph.html"><i class="fa fa-plane"></i> Glyph Icons</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="ajax/grid.html">Grid</a>
+        </li>
+        <li>
+            <a href="ajax/treeview.html">Tree View</a>
+        </li>
+        <li>
+            <a href="ajax/nestable-list.html">Nestable Lists</a>
+        </li>
+        <li>
+            <a href="ajax/jqui.html">JQuery UI</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-folder-open"></i> <span class="menu-item-parent">6 Level Navigation</span></a>
+    <ul>
+        <li>
+            <a href="#"><i class=" fa fa-2x fa-folder-open"></i> 2nd Level</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 3ed Level </a>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-folder-open"></i> 4th Level</a>
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 5th Level<b
+                                            class="collapse-sign"><em class="fa fa-expand-alt"></em></b></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-2x fa-folder-open"></i> Folder</a>
+
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 3ed Level </a>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="ajax/calendar.html"><i class="fa fa-2x fa-calendar"><em>3</em></i> <span
+            class="menu-item-parent">Calendar</span></a>
+</li>
+<li>
+    <a href="ajax/widgets.html"><i class="fa fa-2x fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
+</li>
+<li>
+    <a href="ajax/gallery.html"><i class="fa fa-2x fa-picture-o"></i> <span
+            class="menu-item-parent">Gallery</span></a>
+</li>
+<li>
+    <a href="ajax/gmap-xml.html"><i class="fa fa-2x fa-map-marker"></i> <span
+            class="menu-item-parent">Google Map Skins</span><span
+            class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
+    <ul>
+        <li>
+            <a href="ajax/typography.html">Typography</a>
+        </li>
+        <li>
+            <a href="ajax/pricing-table.html">Pricing Tables</a>
+        </li>
+        <li>
+            <a href="ajax/invoice.html">Invoice</a>
+        </li>
+        <li>
+            <a href="login.html" target="_top">Login</a>
+        </li>
+        <li>
+            <a href="register.html" target="_top">Register</a>
+        </li>
+        <li>
+            <a href="lock.html" target="_top">Locked Screen</a>
+        </li>
+        <li>
+            <a href="ajax/error404.html">Error 404</a>
+        </li>
+        <li>
+            <a href="ajax/error500.html">Error 500</a>
+        </li>
+        <li>
+            <a href="ajax/blank_.html">Blank Page</a>
+        </li>
+        <li>
+            <a href="ajax/email-template.html">Email Template</a>
+        </li>
+        <li>
+            <a href="ajax/search.html">Search Page</a>
+        </li>
+        <li>
+            <a href="ajax/ckeditor.html">CK Editor</a>
+        </li>
+    </ul>
+</li>
+</ul>
+</nav>
+<span class="minifyme"> <i class="fa fa-circle-arrow-left hit"></i> </span>
+
+</aside>
+<div data-role="main" class="main">
+    <div data-role="ribbon" id="ribbon" class="ribbon">
+
+                <span class="ribbon-button-alignment">
+                    <span id="refresh" class="btn btn-ribbon" data-title="refresh" rel="tooltip" data-placement="bottom"
+                          data-original-title="&lt;i class='text-warning fa fa-warning'&gt;&lt;/i&gt; Warning! This will reset all your widget settings."
+                          data-html="true">
+                        <i class="fa fa-refresh"></i>
+                    </span>
+                </span>
+
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li>Dashboard</li>
+        </ol>
+        <!-- end breadcrumb -->
+
+        <!-- You can also add more buttons to the
+        ribbon for further usability
+
+        Example below:
+
+        <span class="ribbon-button-alignment pull-right">
+        <span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+        <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+        <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+        </span> -->
+    </div>
+    <div data-role="content" class="content">
+        <div class="widget panel panel-primary" id="wid-id-1" data-colorbutton="false" data-togglebutton="false"
+             data-deletebutton="false" data-fullscreenbutton="false" role="widget">
+            <header class="panel-heading" role="heading">
+                <div class="btn-group pull-right" role="menu">
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Delete"
+                       data-placement="bottom">
+                        <i class="fa fa-times"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Fullscreen"
+                       data-placement="bottom">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Collapse"
+                       data-placement="bottom">
+                        <i class="fa fa-minus "></i>
+                    </a>
+                </div>
+                <i class="widget-icon fa fa-user"></i>
+
+                <h2 class="panel-title"><strong>Title</strong> <i>Change</i></h2>
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+            </header>
+            <!-- widget content -->
+            <div class="panel-body">
+
+                <h3 class="alert alert-info"> Activate Options Button </h3>
+
+                <code>data-widget-editbutton="<strong>true</strong>"</code>
+
+            </div>
+            <!-- end widget content -->
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

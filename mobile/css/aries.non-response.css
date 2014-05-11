@@ -1,0 +1,66 @@
+/* Non-responsive overrides
+ *
+ * Utilitze the following CSS to disable the responsive-ness of the navbar.
+ */
+.navbar-nav>li{
+    float: left !important;
+}
+
+.navbar-right{
+    float: right !important;
+}
+
+.navbar-header{
+    float: left !important;
+}
+/* Undo custom dropdowns */
+.navbar .navbar-nav .open .dropdown-menu {
+    position: absolute;
+    float: left;
+    background-color: #fff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-width: 0 1px 1px;
+    border-radius: 0 0 4px 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.navbar-right .dropdown-menu{
+    right:0;
+    left: auto;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #333;
+}
+.navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+.navbar .navbar-nav .open .dropdown-menu > .active > a,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff !important;
+    background-color: #dd4814 !important;
+}
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+.navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #999 !important;
+    background-color: transparent !important;
+}
+
+.nav-tabs.nav-justified>li{
+    display: table-cell;
+    width: 1%;
+}
+
+.nav-tabs.nav-justified>li>a{
+    border-radius:4px 4px 0 0;
+    border-bottom:1px solid #ddd;
+}
+
+.nav-tabs.nav-justified>.active>a,
+.nav-tabs.nav-justified>.active>a:hover,
+.nav-tabs.nav-justified>.active>a:focus{
+    border-bottom: #fff;
+}

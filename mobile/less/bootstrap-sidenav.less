@@ -1,0 +1,73 @@
+@bootstrap-side-nav-base: bootstrap-side-nav;
+//** Side nav background color
+@bootstrap-side-nav-bg: #ffffff;
+//** Side nav text color
+@bootstrap-side-nav-color: @gray;
+//** Text color of current page in the side nav
+@bootstrap-side-nav-active-color: @brand-primary;
+
+@bootstrap-side-nav-padding-vertical:7px;
+@bootstrap-side-nav-padding-horizontal:10px;
+
+.@{bootstrap-side-nav-base} {
+  background-color: @bootstrap-side-nav-bg;
+  ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    li {
+      overflow: hidden;
+      a {
+        padding: @bootstrap-side-nav-padding-vertical @bootstrap-side-nav-padding-horizontal;
+        color: @bootstrap-side-nav-color;
+        display: block;
+        text-decoration: none !important;
+        position: relative;
+      }
+    }
+    .active {
+      > a {
+        color: @bootstrap-side-nav-active-color !important;
+        position: relative;
+      }
+    }
+    span {
+      &.menu-item-parent {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    ul {
+      margin: 0;
+      display: none;
+      //      background: rgba(69, 69, 69, .6);
+      padding: 0 0 0 @padding-base-horizontal;
+      li {
+        margin: 0;
+        padding: 0;
+        > a {
+          padding-left: ceil((@font-size-base * 2.5));
+          font-size: 14px;
+          font-weight: 400;
+          outline: 0;
+        }
+      }
+    }
+    li {
+      li {
+        border-bottom: 0;
+        position: relative;
+      }
+    }
+  }
+  i {
+    font-size: 1.5em;
+    width: ceil((@font-size-base * 2));
+  }
+}
+
+.collapse-sign {
+  float: right;
+  font-size: 1.2em;
+}

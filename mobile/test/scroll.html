@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" charset="utf-8"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <!--<link type="text/css" rel="stylesheet" href="../ref/bootstrap.css">-->
+    <!--<link type="text/css" rel="stylesheet" href="../ref/bootstrap-theme.css">-->
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.united.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .content {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            bottom: 51px;
+            top: 90px;
+            background: #ccc;
+            overflow-y: hidden;
+        }
+
+        #wrapper {
+            overflow: hidden;
+            height: 560px;
+        }
+    </style>
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../proto/iscroll-lite.js"></script>
+    <script src="scroll.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"><span class="icon-picture"></span> Brand</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 0">
+        <li><a class="navbar-brand" href="#"><span class="icon-search"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="icon-user"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="icon-pencil"></span></a></li>
+        <li class="dropdown">
+            <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown"><span
+                    class="icon-reorder"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<ul class="nav nav-tabs nav-justified">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Messages</a></li>
+</ul>
+<div class="content" data-role="scroll">
+    <div id="listview1" data-role="listview">
+        <a id="item1" href="#">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+            <span>14</span>
+            <span>2014年1月4日</span>
+
+            <h4>List group item heading</h4>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus</p>
+
+            <div>
+                <button><span class="icon-pencil"></span></button>
+                <button><span class="icon-trash"></span></button>
+                <button><span class="icon-th-list"></span> 详细信息</button>
+            </div>
+        </a>
+        <a id="item2" href="#">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+            <span>14</span>
+            <span>2014年1月4日</span>
+            <h4>List group item heading</h4>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                risus
+                varius blandit.</p>
+
+            <div>
+                <button><span class="icon-pencil"></span></button>
+                <button><span class="icon-trash"></span></button>
+                <button><span class="icon-th-list"></span> 详细信息</button>
+            </div>
+        </a>
+        <a id="item3" href="#">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACGklEQVR4Xu2Yva8BQRTF7xY+g4rQiagIFUL8+wqh0GyxUaMTFYUE+96d5G7mzfNiJ8Mju2cbxu7cmXvmzP2t8Q6HQ0gpvjwIAAdgC6AGpLgGEoogKAAKgAKgACiQYgWAQWAQGAQGgcEUQwB/hoBBYBAYBAaBQWAwxQo8BYNBENBut4tk7PV61Gg0orbcz+fzNB6PKZPJPJT8FTHvDeosgDlRHkQX4HK50Gw2o+v1SnEFeEXMvxR3EkBPzlx1GXC1WtHxeCR+NpvNKgf4vk/f7x9ULpdVe7PZ0Hq9VgINh0Oaz+dKMJuYcVz1dAfIxGu1mkrIXGW532w2abvdKutzwp7nRa7odrsq+dvtRtPplPb7vWrbxnyLAGLVXC5H5/M5Erher1On01FJFotFGgwG6rsIwJ8ijnRqtVrUbrfJJebDwnLnAactIJPlhPv9fpQUW7tSqajCyDauVqu/BOAVXywWdDqdftQGl5j/LoCsormXS6UShWGokjMvtr9udbl/T0S9PsSJWSgUrDVwcoC+ivrIYmf5TYqlWQO4/2QyoeVyGdUA3k7iDJuYb6kBPEGdBNw2k9ef4UmORiNiMrA7ZNXN9wS9SMaJGffd4ukUsPbbB3Zw2gIfmI/1lCAAToRwIoQTIZwIWZfOBHUABUABUAAUAAUSVNStUwEFQAFQABQABaxLZ4I6gAKgACgACoACCSrq1qmAAmmnwBfW1lSfONUhrQAAAABJRU5ErkJggg==">
+            <h4>List group item heading</h4>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                risus
+                varius blandit.</p>
+
+            <div>
+                <!--<button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>-->
+                <!--<button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></button>-->
+                <button><span class="icon-th-list"></span> 详细信息</button>
+            </div>
+        </a>
+        <a id="item4">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAADICAYAAABS39xVAAAIrklEQVR4Xu3bPUvsahQF4Fj4BVprK7baCYp/30JEELERO0VstRIR1HuJEHlPTuYj44xxHZ7TXY0za569XSS5cenx8fG/yj8CBAgECCwprIApiUiAwKeAwrIIBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFH9HfTx8bG6vLysPj4+/vjm3t5etb293fnJun5ma2ur2t/fn8vx03LWmc/Ozqrn5+c/fmRzc7M6PDycS5a+n3Xa7I4bTkBhDWf/rXd+e3urTk5Oqvf3987X6Sqh6+vr6uHhofP4tbW1z6JYXl7++n7f46f9QPf399XNzc3Iw5eWlqrj4+NqfX195iyLyj7tZ3TcYgQU1mJcF/6qkwqr/Us/6mysDLqzs1Pt7u5+fqnv8X0+8KTCql+rLNy+Wfoe3ye7Y4cVUFjD+s/87nVhnZ+fVwcHB19nReUvaruwLi4uPkuo/leeTc3r630+SF1Yd3d3f53RlVnKS8N5ZRz1On2yO3ZYAYU1rP9c3708cylLqX02Vt7j6iq5+rKwvNycdPzt7e3XpWa7KMtLs67LzhKgzN8U1qKzl5edcx2GF1uIgMJaCOvPvOioy8Jxl4Pt0mjf/K7LaWVl5etm/jTH1zf4y7OX5nKuzNd1X6qtVJZbc3laFuo0WWbJ/jPT8i7zEFBY81Ac6DW6CqurGH7il77rTOjp6enrzKu8P9bFNSrjT2QfaHzedgYBhTUD2m/5kXE33suzkZ/6pS8v6TY2NqqXl5fP/4s57lGF2rL8uSHODn/LPOWYLKCwJhvFHNEusObS7KcKq4YqLw3r/550KVgeP9TZYcyABa0U1j+2BEPfuJ62sNr3zkadhbnp/o8t6Dc/jsL6JuBQP17foK5vMDfPTdU52iXQnGGNK4euRwn6Ht8YlDfNV1dXq9fX189vtcuo/ZzUuCfz+2bpe/xQ8/O+swkorNncBv+pcU9yN+HKG93TPKxZFkff49uPRxwdHVVXV1dff3rTZJn0wGuTvSy5vln6Hj/4MAWYWkBhTU31uw6cVFjtP80Z9bd7zaf6zvHt1+56JKG5P9V+xmuUallYi8z+u6YqzSQBhTVJ6Jd+f9Qv8aSb3F1FN+6SbJrjxz1B3v5e/WT+6enpyL+B7DrD6rrkbL723ey/dLxijRBQWFaDAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYgf8BN2n+K5DhZH4AAAAASUVORK5CYII=">
+
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
+                    eget
+                    metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                <div>
+                    <button><span class="icon-pencil"></span></button>
+                    <button><span class="icon-trash"></span></button>
+                    <button><span class="icon-th-list"></span> 详细信息</button>
+                </div>
+            </div>
+        </a>
+        <a id="item5">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAADICAYAAABS39xVAAAIrklEQVR4Xu3bPUvsahQF4Fj4BVprK7baCYp/30JEELERO0VstRIR1HuJEHlPTuYj44xxHZ7TXY0za569XSS5cenx8fG/yj8CBAgECCwprIApiUiAwKeAwrIIBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFEJSoCAwrIDBAjECCismFH9HfTx8bG6vLysPj4+/vjm3t5etb293fnJun5ma2ur2t/fn8vx03LWmc/Ozqrn5+c/fmRzc7M6PDycS5a+n3Xa7I4bTkBhDWf/rXd+e3urTk5Oqvf3987X6Sqh6+vr6uHhofP4tbW1z6JYXl7++n7f46f9QPf399XNzc3Iw5eWlqrj4+NqfX195iyLyj7tZ3TcYgQU1mJcF/6qkwqr/Us/6mysDLqzs1Pt7u5+fqnv8X0+8KTCql+rLNy+Wfoe3ye7Y4cVUFjD+s/87nVhnZ+fVwcHB19nReUvaruwLi4uPkuo/leeTc3r630+SF1Yd3d3f53RlVnKS8N5ZRz1On2yO3ZYAYU1rP9c3708cylLqX02Vt7j6iq5+rKwvNycdPzt7e3XpWa7KMtLs67LzhKgzN8U1qKzl5edcx2GF1uIgMJaCOvPvOioy8Jxl4Pt0mjf/K7LaWVl5etm/jTH1zf4y7OX5nKuzNd1X6qtVJZbc3laFuo0WWbJ/jPT8i7zEFBY81Ac6DW6CqurGH7il77rTOjp6enrzKu8P9bFNSrjT2QfaHzedgYBhTUD2m/5kXE33suzkZ/6pS8v6TY2NqqXl5fP/4s57lGF2rL8uSHODn/LPOWYLKCwJhvFHNEusObS7KcKq4YqLw3r/550KVgeP9TZYcyABa0U1j+2BEPfuJ62sNr3zkadhbnp/o8t6Dc/jsL6JuBQP17foK5vMDfPTdU52iXQnGGNK4euRwn6Ht8YlDfNV1dXq9fX189vtcuo/ZzUuCfz+2bpe/xQ8/O+swkorNncBv+pcU9yN+HKG93TPKxZFkff49uPRxwdHVVXV1dff3rTZJn0wGuTvSy5vln6Hj/4MAWYWkBhTU31uw6cVFjtP80Z9bd7zaf6zvHt1+56JKG5P9V+xmuUallYi8z+u6YqzSQBhTVJ6Jd+f9Qv8aSb3F1FN+6SbJrjxz1B3v5e/WT+6enpyL+B7DrD6rrkbL723ey/dLxijRBQWFaDAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYAYUVMypBCRBQWHaAAIEYgf8BN2n+K5DhZH4AAAAASUVORK5CYII=">
+
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
+                    eget
+                    metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                <div>
+                    <button><span class="icon-pencil"></span></button>
+                    <button><span class="icon-trash"></span></button>
+                    <button><span class="icon-th-list"></span> 详细信息</button>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="btn-group btn-group-justified navbar-fixed-bottom">
+    <a class="btn btn-default" role="button">Left</a>
+    <a class="btn btn-default" role="button">Middle</a>
+
+    <div class="btn-group">
+        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Right dropdown <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

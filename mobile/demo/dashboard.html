@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Aries UI</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.united.css">
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap-switch.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.nav.js"></script>
+    <!--<script src="../src/ui/aries.ui.aside.js"></script>-->
+    <script src="../src/core/aries.ui.init.js"></script>
+    <script src="../proto/bootstrap-switch.js"></script>
+    <style>
+        .emp-goal-list-item {
+            height: 92px;
+            margin-bottom: 5px;
+        }
+
+        .emp-goal-list-item-mark {
+            color: red;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .emp-icon-container {
+            position: absolute;
+            width: 90px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .emp-icon {
+            width: 90px;
+            height: 90px;
+        }
+
+        .emp-goal-list-item-content {
+            margin-left: 100px;
+            padding: 10px;
+        }
+
+        .emp-goal-list-item-content > table {
+            width: 100%;
+            border-top: 1px solid #EEE;
+        }
+
+    </style>
+</head>
+<body>
+<div data-role="page" class="page page-active">
+<header class="action-bar navbar navbar-default">
+    <!--LOGO BRAND-->
+    <div data-role="logo-brand" class="logo-brand navbar-header">
+        <!-- PLACE YOUR LOGO HERE -->
+        <a class="navbar-brand" href="#">
+            <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+            <!--Brand-->
+        </a>
+        <!-- END LOGO PLACEHOLDER -->
+        <!--VIEW CONTROL-->
+        <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+        <!--END PLACE YOUR TITLE HERE-->
+        <i class="dropdown-icon fa fa-caret-right"></i>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="javascript:void(0);">默认主题</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Ubuntu United主题</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Slate主题</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Yeti主题</a>
+            </li>
+        </ul>
+        <!--END VIEW CONTROL-->
+    </div>
+    <!--END LOGO BRAND-->
+    <!-- ACTION BUTTONS-->
+    <!--END ACTION BUTTONS-->
+</header>
+<div data-role="content" class="content" data-scrollable="false">
+<aside style="width: 220px;">
+    <nav>
+        <ul id="navmenu" data-role="nav" style="">
+            <li class="active">
+                <a href="javascript:void(0);" title="Dashboard">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="menu-item-parent"> 仪表板</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="fa fa-2x fa-pencil"></i>
+                    <span class="menu-item-parent"> 表单</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">Smart Form Elements</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Smart Form Layouts</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Smart Form Validation</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Bootstrap Form Elements</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Form Plugins</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Wizards</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Bootstrap Editors</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            Dropzone
+                            <span class="badge pull-right inbox-badge bg-color-yellow">new</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="fa fa-2x fa-list"></i>
+                    <span class="menu-item-parent"> 列表</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">简单数据</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Morris Charts</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Inline Charts</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x fa-desktop"></i>
+                    <span class="menu-item-parent"> UI元素</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">通用元素</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">按钮</a>
+                    </li>
+                    <li>
+                        <a href="#">图标</a>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa-plane"></i> Font Awesome</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"><i class="fa fa-plane"></i> Glyph Icons</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">树</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">嵌套列表</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="fa fa-2x fa-list-alt"></i>
+                    <span class="menu-item-parent"> 面板</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-2x fa-windows"></i>
+                    <span class="menu-item-parent"> 杂项</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);">Typography</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Pricing Tables</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Invoice</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_top">Login</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_top">Register</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_top">Locked Screen</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Error 404</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Error 500</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Email Template</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Search Page</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">CK Editor</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</aside>
+<div style="padding: 10px;overflow-y:auto;display:-webkit-box;-webkit-box-flex:1;-webkit-box-orient:vertical">
+    <div class="page-header">
+        <h1>列表</h1>
+    </div>
+    <h3>简单列表</h3>
+    <div class="frame-480-640">
+        <div id="simple_list_group" data-role="listview" class="list-group">
+            <a class="list-group-item">
+                Acura
+            </a>
+            <a class="list-group-item">
+                Audi
+            </a>
+            <a class="list-group-item">
+                BMW
+            </a>
+            <a class="list-group-item">
+                Cadillac
+            </a>
+            <a class="list-group-item">
+                Ferrari
+            </a>
+        </div>
+    </div>
+    <pre>
+&lt;a class="list-group-item"&gt;
+    Acura
+&lt;/a&gt;
+    </pre>
+    <h3>带图标的简单列表</h3>
+    <div class="frame-480-640">
+        <div id="simple_list_group_with_right_icon" data-role="listview" class="list-group">
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Acura</div>
+                <div style="width: 32px;padding: 6px 0"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Audi</div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">BMW</div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Cadillac</div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Ferrari</div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+        </div>
+    </div>
+    <pre>
+&lt;a class="list-group-item list-group-item-default"&gt;
+    &lt;div class="list-group-item-content"&gt;Acura&lt;/div&gt;
+    &lt;div style="width: 32px;padding: 6px 0"&gt;
+        &lt;i class="fa fa-2x fa-chevron-circle-right"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/a>
+    </pre>
+    <h3>列表中的徽章</h3>
+    <div class="frame-480-640">
+        <div id="simple_list_group_with_badge" data-role="listview" class="list-group">
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Inbox</div>
+                <div style="width: 64px;padding: 10px 5px;"><span class="badge pull-right">12</span></div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Outbox</div>
+                <div style="width: 64px;padding: 10px 5px;"><span class="badge pull-right">0</span></div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Draft</div>
+                <div style="width: 64px;padding: 10px 5px;"><span class="badge pull-right">4</span></div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Sent</div>
+                <div style="width: 64px;padding: 10px 5px;"><span class="badge pull-right">328</span></div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div class="list-group-item-content">Trash</div>
+                <div style="width: 64px;padding: 10px 5px;"><span class="badge pull-right">62</span></div>
+                <div style="width: 32px;padding: 6px 0;"><i class="fa fa-2x fa-chevron-circle-right"></i></div>
+            </a>
+        </div>
+    </div>
+    <pre>
+&lt;a class="list-group-item list-group-item-default"&gt;
+    &lt;div class="list-group-item-content"&gt;Inbox&lt;/div&gt;
+    &lt;div style="width: 64px;padding: 10px 5px;"&gt;
+        &lt;span class="badge pull-right"&gt;12&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div style="width: 32px;padding: 6px 0;"&gt;
+        &lt;i class="fa fa-2x fa-chevron-circle-right"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/a&gt;
+    </pre>
+    <h3>头像列表</h3>
+
+    <p>头像列表总结自QQ好友列表、手机通信录等，左侧显示头像，右侧可显示姓名、状态、最后联系时间、电话等个人信息。</p>
+
+    <div class="frame-480-640">
+        <div id="icon_list_group" class="list-group list-group-fill" data-scrollable="true" data-role="listview">
+            <a class="list-group-item list-group-item-lg">
+                <div class="list-group-item-icon-container">
+                    <img style="width: 89px;height: 89px" src="../test/img/1.png">
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-lg">
+                <div class="list-group-item-icon-container">
+                <img class="pull-left emp-icon" src="../test/img/2.png">
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+                <div style="width: 64px">
+
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-lg">
+                <div class="list-group-item-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/3.png">
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-lg">
+                <div class="list-group-item-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/4.png">
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-lg">
+                <div class="list-group-item-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/5.png">
+                </div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+    <p>
+        头像列表中的一行由<strong>头像区域</strong>和<strong>内容区域</strong>组成。
+        为元素赋予<code>.list-group-item-icon-container</code>标记该区域为头像区域，
+        赋予<code>.list-group-item-content</code>的区域为内容区域，内容区域自动填充行内除头像区域外其他的空间。
+        如果需要你也可以为头像区域指定<code>width</code>样式来改变头像区域的默认宽度。
+    </p>
+    <pre>
+&lt;a class="list-group-item list-group-item-lg"&gt
+    &lt;div class="list-group-item-icon-container"&gt
+        &lt;img style="width: 89px;height: 89px" src="../test/img/1.png"&gt
+    &lt;/div>
+    &lt;div class="list-group-item-content"&gt
+        &lt;h4 class="list-group-item-heading"&gt茉莉&lt;/h4&gt
+    &lt;/div>
+&lt;/a>
+    </pre>
+    <h3>设置列表</h3>
+    <p>设置列表源于<strong>系统设置</strong>、<strong>软件设置</strong>等功能，用来提供某些选项的开/关设置。</p>
+    <div class="frame-480-640">
+        <div id="setting_list_group" class="list-group list-group-fill" data-role="listview">
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-signal"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">移动网络</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                        <input type="checkbox" checked />
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-rss"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">WLAN热点</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                    <input type="checkbox" />
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-cloud-upload"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">云同步</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                    <input type="checkbox" checked />
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-plane"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">飞行模式</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                    <input type="checkbox" checked />
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-clock-o"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">闹钟</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                    <input type="checkbox" />
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-default">
+                <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-volume-up"></i></div>
+                <div class="list-group-item-content">
+                    <h4 class="list-group-item-heading">铃声</h4>
+                </div>
+                <div style="width: 110px;padding: 6px 3px;">
+                    <input type="checkbox" />
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="frame-480-640">
+        <div id="listview1" class="list-group list-group-fill" data-scrollable="true" data-fill="true"
+             data-searchable="true"
+             data-role="listview" data-searchPanelTemplate="">
+            <a id="item1" class="list-group-item clearfix no-padding emp-goal-list-item">
+                <div class="emp-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/1.png">
+                </div>
+                <div class="clearfix emp-goal-list-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                    <i class="fa fa-circle emp-goal-list-item-mark pull-right"></i>
+                </div>
+            </a>
+            <a id="item2" class="list-group-item clearfix no-padding emp-goal-list-item">
+                <div class="emp-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/2.png">
+                </div>
+                <div class="clearfix emp-goal-list-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                    <i class="fa fa-circle emp-goal-list-item-mark"></i>
+                </div>
+            </a>
+            <a id="item3" class="list-group-item clearfix no-padding emp-goal-list-item">
+                <div class="emp-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/3.png">
+                </div>
+                <div class="clearfix emp-goal-list-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+            <a id="item4" class="list-group-item clearfix no-padding emp-goal-list-item">
+                <div class="emp-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/4.png">
+                </div>
+                <div class="clearfix emp-goal-list-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+            <a id="item5" class="list-group-item clearfix no-padding emp-goal-list-item">
+                <div class="emp-icon-container">
+                    <img class="pull-left emp-icon" src="../test/img/5.png">
+                </div>
+                <div class="clearfix emp-goal-list-item-content">
+                    <h4 class="list-group-item-heading">茉莉</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script>
+    $(function(){
+        $("[type='checkbox']").bootstrapSwitch();
+    });
+</script>
+</html>

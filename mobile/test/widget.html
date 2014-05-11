@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" charset="utf-8"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title></title>
+<link type="text/css" rel="stylesheet" href="../../mobiscroll-master/css/mobiscroll.scroller.css">
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.united.css">
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-switch.css">
+<link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+<link type="text/css" rel="stylesheet" href="../css/aries.css">
+<link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+<!--<link type="text/css" rel="stylesheet" href="../css/smartadmin-production.css">-->
+<script src="../ref/jquery-2.1.0.js"></script>
+<script src="../src/core/aries.default.js"></script>
+<script src="../src/core/aries.media.js"></script>
+<script src="../src/core/aries.support.js"></script>
+<script src="../src/core/aries.support.touch.js"></script>
+<script src="../src/core/aries.ui.js"></script>
+<script src="../src/core/aries.ui.export.js"></script>
+<script src="../src/core/aries.ui.default.js"></script>
+<script src="../src/events/navigate.js"></script>
+<script src="../src/events/touch.js"></script>
+<script src="../src/navigation/path.js"></script>
+<script src="../src/navigation/base.js"></script>
+<script src="../src/navigation/history.js"></script>
+<script src="../src/navigation/navigator.js"></script>
+<script src="../src/navigation/method.js"></script>
+<script src="../src/transitions/transition.js"></script>
+<script src="../src/ui/aries.ui.listview.js"></script>
+<script src="../src/ui/aries.ui.scroll.js"></script>
+<script src="../src/ui/aries.ui.page.js"></script>
+<script src="../src/ui/aries.ui.pagecontainer.js"></script>
+<script src="../src/ui/aries.ui.dropdown.js"></script>
+<script src="../src/ui/aries.ui.tab.js"></script>
+<script src="../src/ui/aries.ui.mobiscroll.js"></script>
+<script src="../src/ui/aries.ui.select.js"></script>
+<script src="../src/ui/aries.ui.datetime.js"></script>
+<script src="../src/ui/aries.ui.switch.js"></script>
+<script src="../src/ui/aries.ui.navmenu.js"></script>
+<script src="../src/ui/aries.ui.widget.js"></script>
+<script src="../../prototype/js/bootstrap.js"></script>
+<script src="dashboard.js"></script>
+<style>
+.action-bar > div {
+    display: inline-block;
+    vertical-align: middle;
+    height: 49px;
+    float: left;
+}
+
+.logo-brand > span {
+    display: inline-block;
+    height: 39px;
+    float: left;
+}
+
+.logo-brand .activity-dropdown {
+    cursor: default !important;
+    display: inline-block;
+    font-weight: 700;
+    width: 40px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none !important;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin: 15px 0 0;
+    position: relative;
+    color: #fff;
+}
+
+.logo-brand .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.project-dropdown {
+    display: inline-block;
+    padding: 7px 13px 0;
+    position: relative;
+}
+
+.project-dropdown > span {
+    display: block;
+}
+
+.project-dropdown > :first-child {
+    display: block;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px #fff;
+    padding-left: 0;
+    text-align: left;
+}
+
+.project-selector {
+    max-width: 97%;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+aside {
+    display: block;
+    overflow: hidden;
+    background: #3a3633;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -webkit-gradient(linear, left top, right top, color-stop(93%, #3a3633), color-stop(100%, #2a2725));
+    background: -webkit-linear-gradient(left, #3a3633 93%, #2a2725 100%);
+    background: -webkit-gradient(linear, top left, top right, from(#3a3633), to(#2a2725));
+    background: -webkit-linear-gradient(left, #3a3633 93%, #2a2725 100%);
+    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+    min-height: 100%;
+}
+
+.aside-panel {
+    -webkit-transition: left .1s ease-out;
+    transition: left .1s ease-out;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    z-index: 1002;
+    width: 220px;
+}
+
+.aside-panel-header {
+    display: block;
+    font-size: 12px;
+    height: 39px;
+    line-height: 39px;
+    color: #fff;
+    border: solid transparent;
+    border-width: 1px 0;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+    width: 100%;
+    margin: 0 !important;
+    border-bottom: 1px solid #525151;
+}
+
+nav ul {
+    width: 100%;
+    padding: 40px 28px 25px 0;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: .5em;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li {
+    overflow: hidden;
+}
+
+nav ul li a {
+    line-height: normal;
+    font-size: 14px;
+    padding: 10px 10px 10px 11px;
+    color: #a8a8a8;
+    display: block;
+    font-weight: 400;
+    text-decoration: none !important;
+    position: relative;
+}
+
+nav ul .active > a {
+    color: #fff !important;
+    position: relative;
+}
+
+nav ul li.active > a:before {
+    content: "\f0d9";
+    font-family: FontAwesome;
+    display: block;
+    height: 27px;
+    line-height: normal;
+    width: 27px;
+    position: absolute;
+    right: -21px;
+    font-size: 20px;
+    color: #eee;
+}
+
+nav ul span.menu-item-parent {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li > a b {
+    position: absolute !important;
+    right: 10px;
+    top: 20px;
+}
+
+nav ul b {
+    float: right;
+    font-size: 14px;
+    margin-top: -1px;
+}
+
+nav ul ul {
+    margin: 0;
+    display: none;
+    background: rgba(69, 69, 69, .6);
+    padding: 7px 0;
+}
+
+nav ul ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li li {
+    border-bottom: 0;
+    position: relative;
+}
+
+nav > ul > li > ul > li > a,
+nav > ul > li > ul > li > ul > li > a {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+nav ul ul li > a {
+    padding-left: 42px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+}
+
+nav i {
+    width: 30px;
+}
+
+.main {
+    margin-left: 220px;
+}
+
+.ribbon {
+    min-height: 40px;
+    background: #474544;
+    padding: 0 13px;
+    position: relative;
+}
+
+.ribbon-button-alignment {
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.ribbon .breadcrumb,
+.ribbon .breadcrumb a {
+    color: #BBB !important;
+    text-decoration: none !Important;
+}
+
+.ribbon .breadcrumb {
+    display: inline-block;
+    margin: 0;
+    padding: 11px 34px 11px 0 !important;
+    background: 0 0;
+    vertical-align: top;
+}
+
+.btn.btn-ribbon {
+    background-color: #707070;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777), to(#666));
+    background-image: -webkit-linear-gradient(top, #777, #666);
+    background-image: -webkit-gradient(linear, top left, bottom left, from(#777), to(#666));
+    background-image: -webkit-linear-gradient(top, #777, #666);
+    background-image: linear-gradient(to bottom, #777, #666);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff777777', endColorstr='#ff666666', GradientType=0);
+    color: #fff;
+    padding: 0 5px;
+    line-height: 20px;
+    vertical-align: middle;
+    height: 20px;
+    display: block;
+    border: 0;
+    float: left;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+.minifyme {
+    border-bottom: 1px solid #302F2F;
+    background: #454545;
+    color: #A8A8A8;
+    text-align: center;
+    padding: 0;
+    width: 36px;
+    height: 28px;
+    display: block;
+    position: absolute;
+    right: -3px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 19px;
+    -webkit-transition: all .1s linear 0s;
+    transition: all .1s linear 0s;
+}
+
+.content {
+    padding: 10px 14px;
+    position: relative;
+    left: 0;
+}
+</style>
+</head>
+<body style="overflow: auto">
+<section id="widget-grid" style="overflow: auto" class="">
+
+<!-- row -->
+<div class="row">
+
+<!-- NEW WIDGET START -->
+<article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="widget panel panel-primary" id="wid-id-0">
+    <header class="panel-heading">
+        <h2 class="panel-title"><strong>Default</strong> <i>Widget</i></h2>
+    </header>
+
+    <!-- widget content -->
+    <div class="panel-body">
+
+        <p> Widget comes with a default 10 padding to the body which can be removed by adding the class <code>.no-padding</code>
+            to the <code>.widget-body</code> class.</p>
+        <a href="javascript:void(0);" class="btn btn-default btn-lg"> <strong>Big</strong> <i>Button</i> </a>
+
+    </div>
+    <!-- end widget content -->
+
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-1" data-deleteButton="true" data-refreshButton="true" data-toggleButton="true"
+     data-customButton="true" data-fullscreenButton="true">
+    <header>
+        <span><i class="fa fa-user"></i></span>
+
+        <h2><strong>Title</strong> <i>Change</i></h2>
+    </header>
+    <div>
+        <h3 class="alert alert-info"> Activate Options Button </h3>
+        <code>data-widget-editbutton="<strong>true</strong>"</code>
+    </div>
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-3">
+    <header>
+        <h2><strong>Full</strong> <i>Screen</i></h2>
+    </header>
+
+    <div>
+
+        <h2 class="alert alert-success"> Make any widget full screen</h2>
+        <code>data-widget-fullscreenbutton="<strong>true</strong>"</code>
+        <br><br>
+
+        <p>Usefull when viewing images, gallery, tables with large data and maps. There are much useful applications
+            to this method</p>
+
+    </div>
+
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-5">
+    <header>
+        <h2><strong>Delete</strong> <i>Widget </i></h2>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <h6 class="alert alert-warning semi-bold">
+            <i class="fa fa-times"></i> By deleting a widget you will <strong>remove</strong> the widget from the
+            page and will need to connect the backend with the onevent handler to delete it from database.
+        </h6>
+
+        <code>data-widget-deletebutton="<strong>true</strong>"</code>
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-7">
+    <header>
+        <h2><strong>Widget</strong> <i>Colors</i></h2>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <div class="row">
+
+            <div class="col-md-6 col-lg-8">
+                <h5><strong>Change</strong> and <i>save</i> widget <u>color</u></h5>
+
+                <code>data-widget-colorbutton="<strong>true</strong>"</code>
+                <br>
+                <br>
+
+                <p>Change widget color at will and SmartAdmin will permanently remember the color of your chosen
+                    widget.
+                    Do this to any widget in any page and SmartAdmin will keep track of all your widgets!</p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <img src="img/demo/widget-colorpicker.png" alt="widget colorpicker"
+                     class="pull-right hover-transparent img-responsive">
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-9">
+    <header>
+        <span> <i class="fa fa-comments"></i> </span>
+
+        <h2><strong>Label & Badges</strong></h2>
+
+        <div class="widget-toolbar">
+            <div class="label label-success">
+                <i class="fa fa-arrow-up"></i> 2.35%
+            </div>
+        </div>
+        <div class="widget-toolbar">
+            <div class="badge bg-color-blue">
+                99
+            </div>
+        </div>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <!-- widget toolbar -->
+        <div class="widget-body-toolbar text-center">
+            <div class="badge bg-color-purple">
+                small badge
+            </div>
+            <div class="label label-warning">
+                <i class="fa fa-check"></i> I am a big label
+            </div>
+
+        </div>
+        <!-- end widget toolbar -->
+
+        <!-- widget body text-->
+
+        <p class="alert alert-info">
+
+            Add label inside widget footer / toolbar
+
+        </p>
+
+        <!-- end widget body text-->
+
+    </div>
+    <!-- end widget content -->
+    <div class="panel-footer">
+        <div class="badge bg-color-greenLight pull-left">13</div>
+        <div class="label label-danger pull-right">
+            <i class="fa fa-arrow-circle-down"></i> -1.75%
+        </div>
+    </div>
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-11">
+    <header>
+        <h2><strong>Tabs / Pills</strong> <i>Widget</i></h2>
+
+        <ul id="widget-tab-1" class="nav nav-tabs pull-right">
+
+            <li class="active">
+
+                <a data-toggle="tab" href="#hr1"> <i class="fa fa-arrow-circle-down"></i> <span
+                        class="hidden-mobile hidden-tablet"> Tab 1 </span> </a>
+
+            </li>
+
+            <li>
+                <a data-toggle="tab" href="#hr2"> <i class="fa fa-arrow-circle-up"></i> <span
+                        class="hidden-mobile hidden-tablet"> Tab 2 </span></a>
+            </li>
+
+        </ul>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <!-- widget body text-->
+
+        <div class="tab-content padding-10">
+            <div class="tab-pane active" id="hr1">
+                <p>
+                <h4 class="alert alert-danger"> Insert tabs / pills to widget header </h4>
+                I have six locks on my door all in a row. When I go out, I lock every other one. I figure no matter
+                how long somebody stands there picking the locks, they are always locking three.
+                </p>
+            </div>
+            <div class="tab-pane" id="hr2">
+                <p>
+                <h4 class="alert alert-warning"> Checkout the <a href="#ajax/general-elements.html">General
+                    Elements</a> page for more tab options </h4>
+                Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                farm-to-table craft beer twee.
+                </p>
+            </div>
+        </div>
+
+        <!-- end widget body text-->
+
+    </div>
+    <!-- end widget content -->
+    <!-- widget footer -->
+    <div class="panel-footer text-right">
+
+							<span class="onoffswitch-title">
+								<i class="fa fa-check"></i> Show Tabs
+							</span>
+							<span class="onoffswitch">
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="show-tabs"
+                                       checked="checked">
+								<label class="onoffswitch-label" for="show-tabs">
+                                    <div class="onoffswitch-inner" data-swchon-text="True" data-swchoff-text="NO"></div>
+                                    <div class="onoffswitch-switch"></div>
+                                </label>
+							</span>
+
+    </div>
+    <!-- end widget footer -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-13" data-load="ajax/demowidget.php" data-refreshButton="true">
+    <header>
+        <h2><strong>Refresh</strong> <i>Widget</i></h2>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <!-- widget body text-->
+
+        <p>This content will be replaced via ajax loader...</p>
+
+        <!-- end widget body text-->
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+</article>
+<!-- WIDGET END -->
+
+<!-- NEW WIDGET START -->
+<article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-2">
+    <header>
+        <span> <i class="fa fa-resize-vertical"></i> </span>
+
+        <h2 class="font-md"><strong>Collapsable</strong> <i>Widget</i></h2>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <h2 class="alert alert-warning"> This widget is opened by default </h2>
+        <code>data-widget-togglebutton="<strong>true</strong>"</code>
+        <br><br>
+
+        <p>Notice the header text size is also larger than the rest</p>
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-4" data-collapsed="true" data-toggleButton="true">
+    <header>
+        <span> <i class="fa fa-resize-vertical"></i> </span>
+
+        <h2><strong><i>Collapsed </i></strong>
+            <small>Widget</small>
+        </h2>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <h2 class="alert alert-warning"> This widget is collapsed by default </h2>
+
+        <code>data-widget-collapsed="<strong>true</strong>"</code>
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-6">
+    <header>
+        <h2><strong>Progress</strong> <i>bars</i></h2>
+
+        <div class="widget-toolbar">
+
+            <div class="progress progress-striped active" rel="tooltip" data-original-title="55%"
+                 data-placement="bottom">
+                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 55%">55 %</div>
+            </div>
+
+        </div>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <div class="widget-body-toolbar">
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-bold"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-italic"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-underline"></i>
+                </button>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-align-left"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-align-center"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-align-right"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-align-justify"></i>
+                </button>
+            </div>
+
+        </div>
+        <textarea class="form-control no-border" placeholder="Textarea" rows="4"> This is a textarea - below me is
+            widget footer and above is the widget toolbar!</textarea>
+
+    </div>
+    <!-- end widget content -->
+    <div class="panel-footer">
+
+        <button class="btn btn-sm btn-primary" type="button">
+            Save
+        </button>
+
+        <button class="btn btn-sm btn-danger disabled pull-left" type="button">
+            Delete
+        </button>
+
+    </div>
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-8">
+    <header>
+        <span> <i class="fa fa-hand-up"></i> </span>
+
+        <h2><strong>Widget</strong> <i>buttons</i></h2>
+
+        <div class="widget-toolbar">
+            <a href="javascript:void(0)" class="btn btn-primary">Btn</a>
+        </div>
+        <div class="widget-toolbar">
+
+
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default btn-xs active">
+                    <input type="radio" name="style-a1" id="style-a1"> <i class="fa fa-play"></i></i>
+                </label>
+                <label class="btn btn-default btn-xs">
+                    <input type="radio" name="style-a2" id="style-a2"> <i class="fa fa-pause"></i></i>
+                </label>
+                <label class="btn btn-default btn-xs">
+                    <input type="radio" name="style-a2" id="style-a3"> <i class="fa fa-stop"></i></i>
+                </label>
+            </div>
+        </div>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <h4 class="alert alert-info"> Insert buttons to header manually or dynamically </h4>
+
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-10">
+    <header>
+        <h2><strong>With</strong> <i>Paging</i></h2>
+
+        <div class="widget-toolbar">
+
+            <ul class="pagination ">
+                <li class="disabled">
+                    <a href="javascript:void(0);">Prev</a>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0);">1</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">2</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">3</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Next</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <p class="alert alert-success"><strong><i class="fa fa-check"></i> Alert</strong> without body padding...
+        </p>
+
+        <p class="padding-10"> Notice this widget body has no padding!</p>
+
+    </div>
+    <!-- end widget content -->
+    <div class="panel-footer">
+
+        <button class="btn btn-sm btn-success disabled" type="button">
+            Previous
+        </button>
+
+        <button class="btn btn-sm btn-success" type="button">
+            Next
+        </button>
+
+    </div>
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-12">
+    <header>
+        <span> <i class="fa fa-arrow-down"></i> </span>
+
+        <h2><strong>Widget</strong> <i><u>with</u> Dropdown</i></h2>
+
+        <div class="widget-toolbar">
+
+            <div class="btn-group">
+                <button class="btn dropdown-toggle btn-xs btn-warning" data-toggle="dropdown">
+                    Dropdown <i class="fa fa-caret-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                    <li>
+                        <a href="javascript:void(0);">Option 1</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Option 2</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">Option 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        Add dropdowns to header with ease. Making sure to add btn-xs class when using dropdowns on the widget
+        header.
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-14">
+    <header>
+        <h2><strong>Widget</strong><i> Switch</i></h2>
+
+        <div class="widget-toolbar" id="switch-1">
+            <span class="onoffswitch-title"><i class="fa fa-location-arrow"></i> Style 1</span>
+						<span class="onoffswitch">
+							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+							<label class="onoffswitch-label" for="myonoffswitch">
+                                <div class="onoffswitch-inner" data-swchon-text="ON" data-swchoff-text="OFF"></div>
+                                <div class="onoffswitch-switch"></div>
+                            </label>
+							</span>
+        </div>
+
+        <div class="widget-toolbar" id="switch-2" style="display:none">
+            <div class="smart-form">
+                <label class="toggle">
+                    <input type="checkbox" id="demo-switch-to-pills" name="checkbox-toggle">
+                    <i data-swchon-text="ON" data-swchoff-text="OFF"></i>
+                    <em class="fa fa-location-arrow"></em> Style 2</label>
+            </div>
+        </div>
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <h4 class="alert alert-info"> Insert switches to widget header </h4>
+
+        <div class="btn-group" data-toggle="buttons">
+
+            <label class="btn btn-default btn-sm active">
+                <input type="radio" name="checkbox-style" id="checkbox-style-1" value="switch-1">
+                <strong>Switch</strong> <i>Style 1</i>
+            </label>
+
+            <label class="btn btn-default btn-sm">
+                <input type="radio" name="checkbox-style" id="checkbox-style-2" value="switch-2">
+                <strong>Switch</strong> <i>Style 2</i>
+            </label>
+
+        </div>
+
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-16">
+    <header>
+        <span> <i class="fa fa-lock"></i> </span>
+
+        <h2><strong>Locked</strong> <i>Widget</i></h2>
+
+        <div class="widget-toolbar">
+            <!--<div class="form-group">-->
+            <!--<span class="input-group-addon"> <i class="fa fa-question-circle"></i></span>-->
+            <input type="text" placeholder="Focus to view the tooltip" class=" form-control">
+            <b class="tooltip tooltip-top-right">
+                <i class="fa fa-warning txt-color-teal"></i>
+                Some helpful information</b>
+            <!--</div>-->
+        </div>
+
+    </header>
+    <!-- widget content -->
+    <div>
+
+        <p class="alert alert-success"><i class="fa fa-lock"></i> Locked widgets lock the widget to the base grid
+            (<i>you will not be able to drag this widget</i> ). This also allows you to append and use input text
+            elmenets on the widget header. </p>
+        <code>data-widget-sortable="<strong>false</strong>"</code>
+    </div>
+    <!-- end widget content -->
+</div>
+<!-- end widget -->
+
+<!-- Widget ID (each widget will need unique ID)-->
+<div data-role="widget" id="wid-id-18">
+    <header>
+        <h2><strong>Fixed</strong> <i>Height</i></h2>
+
+    </header>
+    <!-- widget content -->
+    <div>
+        <div class="widget-body-toolbar">
+
+            <div class="row">
+
+                <div class="col-xs-9 col-sm-5 col-md-5 col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input class="form-control" id="prepend" placeholder="Filter" type="text">
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-7 col-md-7 col-lg-7 text-right">
+
+                    <button class="btn btn-success">
+                        <i class="fa fa-plus"></i> <span class="hidden-mobile">Add New Row</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="custom-scroll table-responsive" style="height:290px; overflow-y: scroll;">
+
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th><i class="fa fa-key text-warning"></i> License Key</th>
+                    <th>Username <i class="text-danger">!</i></th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>C87E48EF-605A-B4FF</td>
+                    <td>erat@montesnasceturridiculus.org</td>
+                    <td>10/03/13</td>
+                </tr>
+                <tr>
+                    <td>5DDA79E7-890F-064D</td>
+                    <td>Nunc.lectus@ipsum.co.uk</td>
+                    <td>28/12/13</td>
+                </tr>
+                <tr>
+                    <td>468459AA-7933-C017</td>
+                    <td>vitae.mauris.sit@tempordiamdictum.net</td>
+                    <td>25/02/14</td>
+                </tr>
+                <tr>
+                    <td>C3006C18-4677-D2CE</td>
+                    <td>nec.urna.suscipit@acrisusMorbi.edu</td>
+                    <td>06/07/14</td>
+                </tr>
+                <tr>
+                    <td>E535C188-FDF4-90CB</td>
+                    <td>lobortis@pedeacurna.com</td>
+                    <td>28/12/12</td>
+                </tr>
+                <tr>
+                    <td>95489E95-9602-18B7</td>
+                    <td>egestas.lacinia.Sed@In.ca</td>
+                    <td>17/07/14</td>
+                </tr>
+                <tr>
+                    <td>D34E6661-D81A-9328</td>
+                    <td>arcu@lectus.ca</td>
+                    <td>14/10/14</td>
+                </tr>
+                <tr>
+                    <td>C72D2C04-458F-EBD0</td>
+                    <td>ut.pharetra.sed@vulputatevelit.net</td>
+                    <td>30/04/14</td>
+                </tr>
+                <tr>
+                    <td>10CAFA5C-AB4B-8B45</td>
+                    <td>arcu.eu.odio@Duis.co.uk</td>
+                    <td>14/02/13</td>
+                </tr>
+                <tr>
+                    <td>AA4F5CBA-1CE8-85B7</td>
+                    <td>nec@rutrum.net</td>
+                    <td>06/02/14</td>
+                </tr>
+                <tr>
+                    <td>2D816071-8F99-B315</td>
+                    <td>Praesent.luctus.Curabitur@elementum.ca</td>
+                    <td>27/09/13</td>
+                </tr>
+                <tr>
+                    <td>41BDB60C-C6EA-54EB</td>
+                    <td>Nunc.sed.orci@sitamet.org</td>
+                    <td>18/11/13</td>
+                </tr>
+                <tr>
+                    <td>43F3D48B-FEF3-776E</td>
+                    <td>eu.erat@nequevitaesemper.com</td>
+                    <td>23/04/13</td>
+                </tr>
+                <tr>
+                    <td>2521899F-79B9-B309</td>
+                    <td>mattis.velit@risusQuisque.ca</td>
+                    <td>04/07/13</td>
+                </tr>
+                <tr>
+                    <td>D08994C9-DCB1-948B</td>
+                    <td>Proin@metusAliquam.net</td>
+                    <td>27/07/13</td>
+                </tr>
+                <tr>
+                    <td>7AD2C774-36BA-0B2B</td>
+                    <td>tincidunt@Lorem.com</td>
+                    <td>01/07/14</td>
+                </tr>
+                <tr>
+                    <td>162C0373-FF3B-2469</td>
+                    <td>ante.dictum.cursus@ultrices.org</td>
+                    <td>10/02/13</td>
+                </tr>
+                <tr>
+                    <td>05641987-3D48-DD72</td>
+                    <td>lorem.ut.aliquam@Sednecmetus.org</td>
+                    <td>16/08/14</td>
+                </tr>
+                <tr>
+                    <td>3A173E5A-192A-0D5D</td>
+                    <td>nunc.risus@vitae.org</td>
+                    <td>04/04/13</td>
+                </tr>
+                <tr>
+                    <td>67081066-E0B5-9E37</td>
+                    <td>lectus@sed.org</td>
+                    <td>10/12/14</td>
+                </tr>
+                <tr>
+                    <td>C677C05F-7D98-C3E9</td>
+                    <td>auctor.quis@Morbi.org</td>
+                    <td>30/03/13</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+    <!-- end widget content -->
+
+</div>
+<!-- end widget -->
+
+</article>
+<!-- WIDGET END -->
+
+
+</div>
+
+<!-- end row -->
+
+<!-- row -->
+
+<div class="row">
+
+    <div class="col-sm-12">
+        <div class="well">
+            <h1>Basic Usage</h1>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th width="25%">HTML5 data attributes / CSS / HTML</th>
+                    <th width="15%">Place after</th>
+                    <th width="15%">Example value(s)</th>
+                    <th width="45%">Desctription</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>data-widget-sortable</td>
+                    <td><code>header</code></td>
+                    <td>false</td>
+                    <td>Prevent a widget from being sortable <i>(can only be used with the value 'false')</i>.</td>
+                </tr>
+                <tr>
+                    <td>data-widget-icon</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>icon-trash</td>
+                    <td>Use a icon in the widgets header <i>(see icons section for all list of icons)</i>.</td>
+                </tr>
+                <tr>
+                    <td>data-widget-togglebutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Prevent a widget from having a toggle button <i>(can only be used with the value 'false')</i>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-deletebutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Prevent a widget from having a delete button <i>(can only be used with the value 'false')</i>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-editbutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Prevent a widget from having a edit button <i>(can only be used with the value 'false')</i>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-fullscreenbutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Prevent a widget from having a fullscreen button <i>(can only be used with the value
+                        'false')</i>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-load</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>widget-ajax.php</td>
+                    <td>The file that is loaded with ajax.</td>
+                </tr>
+                <tr>
+                    <td>data-widget-refresh</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>10</td>
+                    <td>Seconds to refresh a ajax file <i>(see 'data-widget-load')</i>.</td>
+                </tr>
+                <tr>
+                    <td>data-widget-refreshbutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Prevent a ajax widget from showing a refresh button <i>(can only be used with the value
+                        'false')</i>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-hidden</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Hide a widget at load <i>(can only be used with the value 'true')</i>.</td>
+                </tr>
+                <tr>
+                    <td> data-widget-colorbutton</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>true</td>
+                    <td>Activates widget color selector modal</i>.</td>
+                </tr>
+                <tr>
+                    <td>data-widget-collapsed</td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>false</td>
+                    <td>Collapse a widget upon load <i>(can only be used with the value 'true')</i>. This will allways
+                        be collapsed every page load.
+                    </td>
+                </tr>
+                <tr>
+                    <td>data-widget-grid</td>
+                    <td><code>article</code></td>
+                    <td>false</td>
+                    <td>You can exclude grids from being a sortable/droppable area, this means that all widgets in this
+                        area will work, but cant be sortable/droppable and that all other
+                        widgets cant be dropped in this area. Add this attribute <i>(can only be used with the value
+                            'false')</i> to a grid element.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>.no-padding</code></td>
+                    <td><code>.widget-body</code></td>
+                    <td>n/a</td>
+                    <td>Removes all padding inside widget body</td>
+                </tr>
+                <tr>
+                    <td><code>.well</code></td>
+                    <td><code>.jarviswidget</code></td>
+                    <td>n/a</td>
+                    <td>Converts a widget to a well</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="7">These HTML5 attributes are used as individual widget options. Main options can be
+                        changed in the widgets plugin it self.
+                        Notice: data attributes can only have 1 boolan value(see above)!
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- end row -->
+
+</section>
+<!-- end widget grid -->
+</body>
+</html>

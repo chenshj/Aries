@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>Aries UI</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.nav.js"></script>
+    <script src="../src/core/aries.ui.init.js"></script>
+</head>
+<body>
+<div data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true">
+        <div class="bootstrap-side-nav" style="width: 100%">
+            <ul id="navmenu" data-role="nav" style="">
+                <li class="active">
+                    <a href="javascript:void(0);" title="Dashboard">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="menu-item-parent"> 仪表板</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="fa fa-2x fa-pencil"></i>
+                        <span class="menu-item-parent"> 表单</span>
+                    </a>
+                    <ul>
+                        <li class="active">
+                            <a href="javascript:void(0);">Smart Form Elements</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Smart Form Layouts</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Smart Form Validation</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Bootstrap Form Elements</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Form Plugins</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Wizards</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Bootstrap Editors</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                Dropzone
+                                <span class="badge pull-right inbox-badge bg-color-yellow">new</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="fa fa-2x fa-list"></i>
+                        <span class="menu-item-parent"> 列表</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">简单数据</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Morris Charts</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Inline Charts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-2x fa-desktop"></i>
+                        <span class="menu-item-parent"> UI元素</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">通用元素</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">按钮</a>
+                        </li>
+                        <li>
+                            <a href="#">图标</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);"><i class="fa fa-plane"></i> Font Awesome</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);"><i class="fa fa-plane"></i> Glyph Icons</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">树</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">嵌套列表</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <i class="fa fa-2x fa-list-alt"></i>
+                        <span class="menu-item-parent"> 面板</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-2x fa-windows"></i>
+                        <span class="menu-item-parent"> 杂项</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);">Typography</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Pricing Tables</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Invoice</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" target="_top">Login</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" target="_top">Register</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" target="_top">Locked Screen</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Error 404</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Error 500</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Blank Page</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Email Template</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">Search Page</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">CK Editor</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

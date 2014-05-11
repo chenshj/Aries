@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>详细信息</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/core/aries.ui.init.js"></script>
+</head>
+<body>
+<div data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true">
+        <form role="form" class="container" style="-webkit-box-flex:1;padding: 0 15px;">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1"
+                               placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="number" class="form-control" id="exampleInputPassword1"
+                               placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Email address</label>
+                        <input type="datetime" class="form-control" id="exampleInputEmail2"
+                               placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword2">Password</label>
+                        <input type="date" data-role="datetime" data-preset="date" data-mode="scroller"
+                               data-display="modal" data-dateOrder="d Dmmyy" data-animate="fade"
+                               class="form-control" id="exampleInputPassword2" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Email address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3"
+                               placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword3">Password</label>
+                        <input type="date" data-role="datetime" data-preset="date" data-mode="scroller"
+                               data-display="bottom" data-dateOrder="d Dmmyy" data-animate="fade"
+                               class="form-control" id="exampleInputPassword3" placeholder="Password">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label for="checkbox1">Check me out</label>
+                        <input id="checkbox1" data-role="switch" type="checkbox">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

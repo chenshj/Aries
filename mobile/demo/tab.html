@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>Aries UI</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/core/aries.ui.init.js"></script>
+    <script src="../proto/tab.js"></script>
+    <script>
+        $(function(){
+            $('#tabHeader').scroll({scrollX:true,scrollY:false});
+        })
+    </script>
+</head>
+<body>
+<div data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Tab展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <!--<i class="dropdown-icon fa fa-caret-right"></i>-->
+            <!--<ul class="dropdown-menu">-->
+            <!--<li>-->
+            <!--<a href="javascript:void(0);"></a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="true" style="-webkit-box-orient:vertical">
+        <div style="display: -webkit-box;-webkit-box-flex:1;-webkit-box-orient:vertical">
+            <div id="tabHeader">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" style="display: -webkit-inline-box;min-width: 100%">
+                    <li><a href="#home" data-toggle="tab">Home</a></li>
+                    <li><a href="#profile" data-toggle="tab">Profile</a></li>
+                    <li><a href="#messages" data-toggle="tab">Messages</a></li>
+                    <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+            </div>
+
+            <!-- Tab panes -->
+            <div class="tab-content" style="-webkit-box-flex:1">
+                <div class="tab-pane active" id="home">
+                    <input type="text" id="demoText"/>
+                </div>
+                <div class="tab-pane" id="profile">...</div>
+                <div class="tab-pane" id="messages">...</div>
+                <div class="tab-pane" id="settings">...</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

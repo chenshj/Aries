@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<meta charset="utf-8">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Aries UI</title>
+    <script src="../ref/jquery-2.1.0.js"></script>
+</head>
+<body>
+<form action="">
+    <input type="text"/>
+    <input type="text"/>
+    <input type="text"/>
+    <button id="dialogButton" type="button">显示层</button>
+</form>
+<div id="log"></div>
+<!-- Modal -->
+<div id="myModal" class=".dropdown"
+     style="width: 100%;height: 300px;background-color: #ff0000;opacity: 0.5;position: absolute;top: 0;left: 0;display: none">
+
+</div>
+<!-- /.modal -->
+</body>
+<script>
+    function log (message) {
+        var $logPad = $('#log');
+        if ($logPad.html()) {
+            $logPad.append('<br/>')
+        }
+        $logPad.append(message);
+    }
+    $(function() {
+        //        $(document)
+        //                .on('click', '[id=myModal]', function(e) {
+        //                    $(e.currentTarget).hide();
+        //                });
+
+        $('#myModal')
+                .on('click', function() {
+                    $(this).hide();
+                    log('click at:' + new Date().getTime());
+                    //$(this).modal('hide');
+                })
+                .on('touchstart', function() {
+                    log('touchstart at:' + new Date().getTime());
+                })
+                .on('touchend', function() {
+                    log('touchend at:' + new Date().getTime());
+                });
+        $('#dialogButton').on('click', function() {
+            //$('#myModal').modal('show');
+            $('#myModal').show();
+        });
+    });
+</script>
+</html>

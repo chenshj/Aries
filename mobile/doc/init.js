@@ -1,0 +1,20 @@
+/**
+ * Created by chenshj on 2014/4/20.
+ */
+$(function(){
+    $('#tabHeader').scroll({scrollX:true,scrollY:false});
+    $('#navmenu').on('mouseover','li',function(e){
+        e.stopPropagation();
+        $('#nav-label1').stop(true,true)
+            .animate(
+            {
+                top:$(this).offset().top-$('#navmenu').offset().top
+            },
+            {
+                duration:200,
+                easing:"linear",
+                queue:'topAnim'
+            })
+            .dequeue('topAnim');
+    });
+});

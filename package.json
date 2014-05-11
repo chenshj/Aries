@@ -1,0 +1,21 @@
+{
+  "name": "Aries",
+  "version": "0.0.1",
+  "description": "Aries is a mobile first Html5 UI framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenshj/Aries.git"
+  },
+  "author": "chenshj",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/chenshj/Aries/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4"
+  }
+}

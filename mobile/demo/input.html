@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <title>Aries UI</title>
+    <link rel="stylesheet/less" href="../less/variables.less" />
+    <link rel="stylesheet/less" href="../less/variables.less" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+    <!--<link type="text/css" rel="stylesheet" href="../css/bootstrap-switch.css">-->
+    <link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.css">
+    <link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+    <script src="../ref/jquery-2.1.0.js"></script>
+    <script src="../ref/template.js"></script>
+    <script src="../src/core/aries.ui.js"></script>
+    <script src="../src/core/aries.ui.export.js"></script>
+    <script src="../src/core/aries.ui.default.js"></script>
+    <script src="../src/ui/aries.ui.listview.js"></script>
+    <script src="../src/ui/aries.ui.scroll.js"></script>
+    <script src="../src/ui/aries.ui.page.js"></script>
+    <script src="../src/ui/aries.ui.navmenu.js"></script>
+    <script src="../src/ui/aries.ui.switch.js"></script>
+    <script src="../src/ui/aries.ui.radio.js"></script>
+    <script src="../src/ui/aries.ui.checkbox.js"></script>
+    <!--<script src="../src/ui/aries.ui.aside.js"></script>-->
+    <script src="../src/core/aries.ui.init.js"></script>
+    <!--<script src="../proto/bootstrap-switch.js"></script>-->
+    <script src="../proto/modal.js"></script>
+    <!--<script src="../proto/flatui-radio.js"></script>-->
+    <style>
+        /*.bootstrap-switch-label{*/
+            /*border-radius: 50%;*/
+            /*position: relative;*/
+            /*width: 28px;*/
+            /*margin: 0 -14px;*/
+            /*padding: 0;*/
+            /*border: 4px solid #dd4814;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div data-role="page" class="page page-active">
+    <header class="action-bar navbar navbar-default ">
+        <!--LOGO BRAND-->
+        <div data-role="logo-brand" class="logo-brand navbar-header">
+            <!-- PLACE YOUR LOGO HERE -->
+            <a class="navbar-brand" href="#">
+                <span class="fa fa-angle-left"></span>
+            <span id="activity" class="logo">
+                <i class="fa fa-group fa-border"></i>
+            </span>
+                <!--Brand-->
+            </a>
+            <!-- END LOGO PLACEHOLDER -->
+            <!--VIEW CONTROL-->
+            <!--PLACE YOUR TITLE HERE-->
+        <span id="project-selector" class="project-selector dropdown-toggle"
+              data-toggle="dropdown"> Aries UI 展示Demo</span>
+            <!--END PLACE YOUR TITLE HERE-->
+            <i class="dropdown-icon fa fa-caret-right"></i>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0);">默认主题</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Ubuntu United主题</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Slate主题</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Yeti主题</a>
+                </li>
+            </ul>
+            <!--END VIEW CONTROL-->
+        </div>
+        <!--END LOGO BRAND-->
+        <!-- ACTION BUTTONS-->
+        <!--END ACTION BUTTONS-->
+    </header>
+    <div data-role="content" class="content" data-scrollable="false">
+        <div style="padding: 10px;overflow-y:auto;display:-webkit-box;-webkit-box-flex:1;-webkit-box-orient:vertical">
+            <form>
+                <input type="search" placeholder="interactive"/>
+
+                <p></p>
+
+                <div class="input-group">
+                    <span class="input-group-addon input-group-addon-default">$</span>
+                    <input type="date" style="cursor: pointer" readonly class="form-control"/>
+                    <span class="input-group-btn">
+                <button type="button" class="btn btn-default" style="outline: none"><i class="fa fa-search"></i>
+                </button>
+            </span>
+                </div>
+
+                <label class="radio">
+                    <input checked data-role="radio" name="radios" type="radio"/>
+                </label>
+                <label class="radio">
+                    <input data-role="radio" name="radios" type="radio" />
+                </label>
+                <label class="checkbox">
+                    <input data-role="checkbox" type="checkbox" />
+                </label>
+            </form>
+            <p></p>
+            <p></p>
+            <input data-role="switch" type="checkbox" name="my-checkbox" checked>
+
+            <p></p>
+
+            <div class="frame-480-640">
+                <form style="padding: 15px" role="form" class="">
+                    <div class="form-group">
+                        <label for="select">日期</label>
+
+                        <div>
+                            <select id="select" class="form-control uneditable-input">
+                                <option data-placeholder="true">请选择</option>
+                                <option value="jinan">济南</option>
+                                <option value="qingdao">青岛</option>
+                                <option value="zibo">淄博</option>
+                                <option value="weifang">潍坊</option>
+                                <option value="rizhao">日照</option>
+                                <option value="yantai">烟台</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm12 input-group">
+                <span class="input-group-addon input-group-addon-default">
+                    <i class="fa fa-user"></i>
+                </span>
+                            <input type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cellPhone" class="">手机</label>
+
+                        <div>
+                            <input id="cellPhone" type="tel" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel">办公电话</label>
+
+                        <div>
+                            <input id="tel" type="tel" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="e-mail">e-mail</label>
+
+                        <div>
+                            <input id="e-mail" type="email" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">备注</label>
+
+                        <div>
+                            <textarea id="description" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateSelect">日期1</label>
+
+                        <div>
+                            <input id="dateSelect" type="date" style="cursor: pointer" class="form-control"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div id="setting_list_group" class="list-group list-group-fill" data-searchable="true"
+                     data-role="listview">
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-signal"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">移动网络</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-rss"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">WLAN热点</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-cloud-upload"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">云同步</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-plane"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">飞行模式</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-clock-o"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">闹钟</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                    <a class="list-group-item list-group-item-default">
+                        <div style="width: 32px;padding: 8px 6px"><i class="fa fa-2x fa-volume-up"></i></div>
+                        <div class="list-group-item-content">
+                            <h4 class="list-group-item-heading">铃声</h4>
+                        </div>
+                        <div style="width: 40px;padding: 6px 3px;">
+                            <label class="radio">
+                                <input data-role="radio" name="optionRadios" type="radio"/>
+                            </label>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+</body>
+<script>
+    $(function() {
+        $('#select')
+                .on('mousedown', function() {
+                    return false;
+                })
+                .click(function(e) {
+                    $('#myModal').modal('show');
+                    return false;
+                });
+    });
+</script>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" charset="utf-8"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title></title>
+<link type="text/css" rel="stylesheet" href="../../mobiscroll-master/css/mobiscroll.scroller.css">
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.united.css">
+<link type="text/css" rel="stylesheet" href="../css/bootstrap-switch.css">
+<link type="text/css" rel="stylesheet" href="../ref/font-awesome.css">
+<link type="text/css" rel="stylesheet" href="../css/aries.css">
+<link type="text/css" rel="stylesheet" href="../css/aries.non-response.css">
+<script src="../ref/jquery-2.1.0.js"></script>
+<script src="../src/core/aries.default.js"></script>
+<script src="../src/core/aries.media.js"></script>
+<script src="../src/core/aries.support.js"></script>
+<script src="../src/core/aries.support.touch.js"></script>
+<script src="../src/core/aries.ui.js"></script>
+<script src="../src/core/aries.ui.export.js"></script>
+<script src="../src/core/aries.ui.default.js"></script>
+<script src="../src/events/navigate.js"></script>
+<script src="../src/events/touch.js"></script>
+<script src="../src/navigation/path.js"></script>
+<script src="../src/navigation/base.js"></script>
+<script src="../src/navigation/history.js"></script>
+<script src="../src/navigation/navigator.js"></script>
+<script src="../src/navigation/method.js"></script>
+<script src="../src/transitions/transition.js"></script>
+<script src="../src/ui/aries.ui.listview.js"></script>
+<script src="../src/ui/aries.ui.scroll.js"></script>
+<script src="../src/ui/aries.ui.page.js"></script>
+<script src="../src/ui/aries.ui.pagecontainer.js"></script>
+<script src="../src/ui/aries.ui.dropdown.js"></script>
+<script src="../src/ui/aries.ui.tab.js"></script>
+<script src="../src/ui/aries.ui.mobiscroll.js"></script>
+<script src="../src/ui/aries.ui.select.js"></script>
+<script src="../src/ui/aries.ui.datetime.js"></script>
+<script src="../src/ui/aries.ui.switch.js"></script>
+<script src="../../prototype/js/bootstrap.js"></script>
+<script src="dashboard.js"></script>
+<style>
+.action-bar > div {
+    display: inline-block;
+    vertical-align: middle;
+    height: 49px;
+    float: left;
+}
+
+.logo-brand > span {
+    display: inline-block;
+    height: 39px;
+    float: left;
+}
+
+.logo-brand .activity-dropdown {
+    cursor: default !important;
+    display: inline-block;
+    font-weight: 700;
+    width: 40px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none !important;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    margin: 15px 0 0;
+    position: relative;
+    color: #fff;
+}
+
+.logo-brand .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.project-dropdown {
+    display: inline-block;
+    padding: 7px 13px 0;
+    position: relative;
+}
+
+.project-dropdown > span {
+    display: block;
+}
+
+.project-dropdown > :first-child {
+    display: block;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px #fff;
+    padding-left: 0;
+    text-align: left;
+}
+
+.project-selector {
+    max-width: 97%;
+    white-space: nowrap;
+    background: 0 0;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+aside {
+    display: block;
+    overflow: hidden;
+    background: #3a3633;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…BoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -webkit-gradient(linear, left top, right top, color-stop(93%, #3a3633), color-stop(100%, #2a2725));
+    background: -webkit-linear-gradient(left, #3a3633 93%, #2a2725 100%);
+    background: -webkit-gradient(linear, top left, top right, from(#3a3633), to(#2a2725));
+    background: -webkit-linear-gradient(left, #3a3633 93%, #2a2725 100%);
+    background: linear-gradient(to right, #3a3633 93%, #2a2725 100%);
+    min-height: 100%;
+}
+
+.aside-panel {
+    -webkit-transition: left .1s ease-out;
+    transition: left .1s ease-out;
+    position: absolute;
+    top: 49px;
+    left: 0;
+    z-index: 1002;
+    width: 220px;
+}
+
+.aside-panel-header {
+    display: block;
+    font-size: 12px;
+    height: 39px;
+    line-height: 39px;
+    color: #fff;
+    border: solid transparent;
+    border-width: 1px 0;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+    width: 100%;
+    margin: 0 !important;
+    border-bottom: 1px solid #525151;
+}
+
+nav ul {
+    width: 100%;
+    padding: 40px 28px 25px 0;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: .5em;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li {
+    overflow: hidden;
+}
+
+nav ul li a {
+    line-height: normal;
+    font-size: 14px;
+    padding: 10px 10px 10px 11px;
+    color: #a8a8a8;
+    display: block;
+    font-weight: 400;
+    text-decoration: none !important;
+    position: relative;
+}
+
+nav ul .active > a {
+    color: #fff !important;
+    position: relative;
+}
+
+nav ul li.active > a:before {
+    content: "\f0d9";
+    font-family: FontAwesome;
+    display: block;
+    height: 27px;
+    line-height: normal;
+    width: 27px;
+    position: absolute;
+    right: -21px;
+    font-size: 20px;
+    color: #eee;
+}
+
+nav ul span.menu-item-parent {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li > a b {
+    position: absolute !important;
+    right: 10px;
+    top: 20px;
+}
+
+nav ul b {
+    float: right;
+    font-size: 14px;
+    margin-top: -1px;
+}
+
+nav ul ul {
+    margin: 0;
+    display: none;
+    background: rgba(69, 69, 69, .6);
+    padding: 7px 0;
+}
+
+nav ul ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li li {
+    border-bottom: 0;
+    position: relative;
+}
+
+nav > ul > li > ul > li > a,
+nav > ul > li > ul > li > ul > li > a {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+nav ul ul li > a {
+    padding-left: 42px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: 0;
+}
+
+nav i {
+    width: 30px;
+}
+
+.main {
+    margin-left: 220px;
+}
+
+.ribbon {
+    min-height: 40px;
+    background: #474544;
+    padding: 0 13px;
+    position: relative;
+}
+
+.ribbon-button-alignment {
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.ribbon .breadcrumb,
+.ribbon .breadcrumb a {
+    color: #BBB !important;
+    text-decoration: none !Important;
+}
+
+.ribbon .breadcrumb {
+    display: inline-block;
+    margin: 0;
+    padding: 11px 34px 11px 0 !important;
+    background: 0 0;
+    vertical-align: top;
+}
+
+.btn.btn-ribbon {
+    background-color: #707070;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777), to(#666));
+    background-image: -webkit-linear-gradient(top, #777, #666);
+    background-image: -webkit-gradient(linear, top left, bottom left, from(#777), to(#666));
+    background-image: -webkit-linear-gradient(top, #777, #666);
+    background-image: linear-gradient(to bottom, #777, #666);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff777777', endColorstr='#ff666666', GradientType=0);
+    color: #fff;
+    padding: 0 5px;
+    line-height: 20px;
+    vertical-align: middle;
+    height: 20px;
+    display: block;
+    border: 0;
+    float: left;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+.minifyme {
+    border-bottom: 1px solid #302F2F;
+    background: #454545;
+    color: #A8A8A8;
+    text-align: center;
+    padding: 0;
+    width: 36px;
+    height: 28px;
+    display: block;
+    position: absolute;
+    right: -3px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 19px;
+    -webkit-transition: all .1s linear 0s;
+    transition: all .1s linear 0s;
+}
+
+.content {
+    padding: 10px 14px;
+    position: relative;
+    left: 0;
+}
+
+.widget .panel-heading {
+    padding: 0;
+    height: 32px;
+    line-height: 32px;
+}
+
+.widget .panel-heading .btn {
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+.widget .panel-title {
+    float: left;
+    line-height: 32px;
+    margin-left: 10px;
+}
+
+.widget-icon {
+    display: block;
+    width: 30px;
+    height: 32px;
+    position: relative;
+    float: left;
+    font-size: 111%;
+    line-height: 32px;
+    text-align: center;
+    margin-right: -10px
+}
+</style>
+</head>
+<body>
+<div data-role="page">
+<header data-role="actionBar" class="action-bar navbar navbar-default navbar-fixed-top">
+    <!--head logo-->
+    <div data-role="logo-brand" class="logo-brand navbar-header">
+        <!-- PLACE YOUR LOGO HERE -->
+        <a class="navbar-brand" href="#">
+            <span class="fa fa-angle-left"></span>
+            <span class="fa fa-picture-o"></span> Brand
+        </a>
+        <!-- END LOGO PLACEHOLDER -->
+            <span id="activity" class="activity-dropdown"> <i class="fa fa-user fa-border"></i> <b
+                    class="badge bg-color-red bounceIn animated"> 21 </b> </span>
+    </div>
+    <!--end head logo-->
+    <!-- begin view control -->
+    <div id="projects-dropdown" class="project-dropdown">
+        <span data-role="project-label" class="label">Projects:</span>
+        <!--dropdown button-->
+                <span id="project-selector" class="project-selector dropdown-toggle" data-toggle="dropdown">
+                    Recent projects
+                    <i class="fa fa-angle-down"></i>
+                </span>
+        <!--end dropdown button-->
+        <!-- Suggestion: populate this list with fetch and push technique -->
+        <ul class="dropdown-menu">
+            <li>
+                <a href="javascript:void(0);">Online e-merchant management system - attaching integration with the
+                    iOS</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Notes on pipeline upgradee</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Assesment Report for merchant account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+            </li>
+        </ul>
+        <!-- end dropdown-menu-->
+    </div>
+    <!-- end view control -->
+    <!-- begin action buttons-->
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 0">
+        <li><a class="navbar-brand" href="#"><span class="fa fa-search"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="fa fa-user"></span></a></li>
+        <li><a class="navbar-brand" href="#"><span class="fa fa-pencil"></span></a></li>
+        <li class="dropdown">
+            <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown"><span
+                    class="fa fa-ellipsis-v"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!--end action buttons-->
+</header>
+<aside data-role="aside-panel" id="left-panel" class="aside-panel" style="min-height: 2897px;">
+
+<!-- User info -->
+<div data-role="aside-panel-header" class="aside-panel-header">
+                    <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+                        <img src="img/avatars/sunny.png" alt="me" class="online">
+                        <a href="javascript:void(0);" id="show-shortcut">
+                            john.doe <i class="fa fa-angle-down"></i>
+                        </a>
+                    </span>
+</div>
+<!-- end user info -->
+
+<!-- NAVIGATION : This navigation is also responsive
+
+To make this navigation dynamic please make sure to link the node
+(the reference to the nav > ul) after page load. Or the navigation
+will not initialize.
+-->
+<nav>
+<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+Please note that these links work a bit different than
+traditional href="" links. See documentation for details.
+-->
+<ul id="left-nav-menu" style="">
+<li class="active">
+    <a href="ajax/dashboard.html" title="Dashboard"><i class="fa fa-home fa-2x"></i> <span
+            class="menu-item-parent">Dashboard</span></a>
+</li>
+<li>
+    <a href="ajax/inbox.html"><i class="fa fa-2x fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span
+            class="badge pull-right inbox-badge">14</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
+    <ul>
+        <li>
+            <a href="ajax/flot.html">Flot Chart</a>
+        </li>
+        <li>
+            <a href="ajax/morris.html">Morris Charts</a>
+        </li>
+        <li>
+            <a href="ajax/inline-charts.html">Inline Charts</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-table"></i> <span class="menu-item-parent">Tables</span></a>
+    <ul>
+        <li>
+            <a href="ajax/table.html">Normal Tables</a>
+        </li>
+        <li>
+            <a href="ajax/datatables.html">Data Tables</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-pencil"></i> <span class="menu-item-parent">Forms</span></a>
+    <ul>
+        <li>
+            <a href="ajax/form-elements.html">Smart Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/form-templates.html">Smart Form Layouts</a>
+        </li>
+        <li>
+            <a href="ajax/validation.html">Smart Form Validation</a>
+        </li>
+        <li>
+            <a href="ajax/bootstrap-forms.html">Bootstrap Form Elements</a>
+        </li>
+        <li>
+            <a href="ajax/plugins.html">Form Plugins</a>
+        </li>
+        <li>
+            <a href="ajax/wizard.html">Wizards</a>
+        </li>
+        <li>
+            <a href="ajax/other-editors.html">Bootstrap Editors</a>
+        </li>
+        <li>
+            <a href="ajax/dropzone.html">Dropzone <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
+    <ul>
+        <li>
+            <a href="ajax/general-elements.html">General Elements</a>
+        </li>
+        <li>
+            <a href="ajax/buttons.html">Buttons</a>
+        </li>
+        <li>
+            <a href="#">Icons</a>
+            <ul>
+                <li>
+                    <a href="ajax/fa.html"><i class="fa-plane"></i> Font Awesome</a>
+                </li>
+                <li>
+                    <a href="ajax/glyph.html"><i class="fa fa-plane"></i> Glyph Icons</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="ajax/grid.html">Grid</a>
+        </li>
+        <li>
+            <a href="ajax/treeview.html">Tree View</a>
+        </li>
+        <li>
+            <a href="ajax/nestable-list.html">Nestable Lists</a>
+        </li>
+        <li>
+            <a href="ajax/jqui.html">JQuery UI</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-folder-open"></i> <span class="menu-item-parent">6 Level Navigation</span></a>
+    <ul>
+        <li>
+            <a href="#"><i class=" fa fa-2x fa-folder-open"></i> 2nd Level</a>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 3ed Level </a>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-folder-open"></i> 4th Level</a>
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 5th Level<b
+                                            class="collapse-sign"><em class="fa fa-expand-alt"></em></b></a>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-2x fa-folder-open"></i> Folder</a>
+
+            <ul>
+                <li>
+                    <a href="#"><i class="fa fa-2x fa-folder-open"></i> 3ed Level </a>
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-file-text"></i> File</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="ajax/calendar.html"><i class="fa fa-2x fa-calendar"><em>3</em></i> <span
+            class="menu-item-parent">Calendar</span></a>
+</li>
+<li>
+    <a href="ajax/widgets.html"><i class="fa fa-2x fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
+</li>
+<li>
+    <a href="ajax/gallery.html"><i class="fa fa-2x fa-picture-o"></i> <span
+            class="menu-item-parent">Gallery</span></a>
+</li>
+<li>
+    <a href="ajax/gmap-xml.html"><i class="fa fa-2x fa-map-marker"></i> <span
+            class="menu-item-parent">Google Map Skins</span><span
+            class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-2x fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
+    <ul>
+        <li>
+            <a href="ajax/typography.html">Typography</a>
+        </li>
+        <li>
+            <a href="ajax/pricing-table.html">Pricing Tables</a>
+        </li>
+        <li>
+            <a href="ajax/invoice.html">Invoice</a>
+        </li>
+        <li>
+            <a href="login.html" target="_top">Login</a>
+        </li>
+        <li>
+            <a href="register.html" target="_top">Register</a>
+        </li>
+        <li>
+            <a href="lock.html" target="_top">Locked Screen</a>
+        </li>
+        <li>
+            <a href="ajax/error404.html">Error 404</a>
+        </li>
+        <li>
+            <a href="ajax/error500.html">Error 500</a>
+        </li>
+        <li>
+            <a href="ajax/blank_.html">Blank Page</a>
+        </li>
+        <li>
+            <a href="ajax/email-template.html">Email Template</a>
+        </li>
+        <li>
+            <a href="ajax/search.html">Search Page</a>
+        </li>
+        <li>
+            <a href="ajax/ckeditor.html">CK Editor</a>
+        </li>
+    </ul>
+</li>
+</ul>
+</nav>
+<span class="minifyme"> <i class="fa fa-circle-arrow-left hit"></i> </span>
+
+</aside>
+<div data-role="main" class="main">
+    <div data-role="ribbon" id="ribbon" class="ribbon">
+
+                <span class="ribbon-button-alignment">
+                    <span id="refresh" class="btn btn-ribbon" data-title="refresh" rel="tooltip" data-placement="bottom"
+                          data-original-title="&lt;i class='text-warning fa fa-warning'&gt;&lt;/i&gt; Warning! This will reset all your widget settings."
+                          data-html="true">
+                        <i class="fa fa-refresh"></i>
+                    </span>
+                </span>
+
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">
+            <li>Home</li>
+            <li>Dashboard</li>
+        </ol>
+        <!-- end breadcrumb -->
+
+        <!-- You can also add more buttons to the
+        ribbon for further usability
+
+        Example below:
+
+        <span class="ribbon-button-alignment pull-right">
+        <span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+        <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+        <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+        </span> -->
+    </div>
+    <div data-role="content" class="content">
+        <div class="widget panel panel-primary" id="wid-id-1" data-colorbutton="false" data-togglebutton="false"
+             data-deletebutton="false" data-fullscreenbutton="false" role="widget">
+            <header class="panel-heading" role="heading">
+                <div class="btn-group pull-right" role="menu">
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Delete"
+                       data-placement="bottom">
+                        <i class="fa fa-times"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Fullscreen"
+                       data-placement="bottom">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-primary " rel="tooltip" title="Collapse"
+                       data-placement="bottom">
+                        <i class="fa fa-minus "></i>
+                    </a>
+                </div>
+                <i class="widget-icon fa fa-user"></i>
+
+                <h2 class="panel-title"><strong>Title</strong> <i>Change</i></h2>
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+            </header>
+            <!-- widget content -->
+            <div class="panel-body">
+
+                <h3 class="alert alert-info"> Activate Options Button </h3>
+
+                <code>data-widget-editbutton="<strong>true</strong>"</code>
+
+            </div>
+            <!-- end widget content -->
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
